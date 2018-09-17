@@ -1,0 +1,63 @@
+ext{
+
+    android = [
+            compileSdkVersion       : 27,
+            buildToolsVersion       : "27.0.0",
+            minSdkVersion           : 15,
+            targetSdkVersion        : 27,
+            versionCode             : 1,
+            versionName             : "1.0.0",
+            renderscriptTargetApi   : 21
+
+    ]
+
+    version = [
+            supportLibraryVersion   :"27.0.0",
+            smartrefreshVersion     :"1.0.5.1",
+            okhttpVersion           :"3.9.0",
+            retrofitVersion         :"2.3.0",
+            glideVersion            :"4.0.0",
+            daggerVersion           :"2.7",
+            butterknifeVersion      :"8.8.1",
+            fragmentationVersion    :"1.1.9",
+            leakcanaryVersion       :"1.5.4"
+    ]
+
+    dependencies = [
+            "appcompat-v7"                      : "com.android.support:appcompat-v7:${version["supportLibraryVersion"]}",
+            "design"                            : "com.android.support:design:${version["supportLibraryVersion"]}",
+            "constraint-layout"                 : "com.android.support.constraint:constraint-layout:1.0.2",
+
+            //ui
+            "SmartRefreshLayout"                :"com.scwang.smartrefresh:SmartRefreshLayout:${version["smartrefreshVersion"]}",
+            "SmartRefreshHeader"                : "com.scwang.smartrefresh:SmartRefreshHeader:${version["smartrefreshVersion"]}",
+
+            //rxjava
+            "rxjava"                            : "io.reactivex.rxjava2:rxjava:2.1.5",
+            "rxbinding"                         : "com.jakewharton.rxbinding2:rxbinding:2.1.0",
+
+            //di
+            "dagger"                            : "com.google.dagger:dagger:${version["daggerVersion"]}",
+            "dagger-compiler"                   : "com.google.dagger:dagger-compiler:${version["daggerVersion"]}",
+
+            //net
+            "glide"                             : "com.github.bumptech.glide:glide:${version["glideVersion"]}",
+            "glide_compiler"                    : "com.github.bumptech.glide:compiler:${version["glideVersion"]}",
+            "okhttp"                            : "com.squareup.okhttp3:okhttp:${version["okhttpVersion"]}",
+            "logging-interceptor"               : "com.squareup.okhttp3:logging-interceptor:${version["okhttpVersion"]}",
+            "retrofit"                          : "com.squareup.retrofit2:retrofit:${version["retrofitVersion"]}",
+            "converter-gson"                    : "com.squareup.retrofit2:converter-gson:${version["retrofitVersion"]}",
+            "adapter-rxjava2"                   : "com.squareup.retrofit2:adapter-rxjava2:${version["retrofitVersion"]}",
+
+            //leakcanary
+//            "leakcanary-android"                : "com.squareup.leakcanary:leakcanary-android:${version["leakcanaryVersion"]}",
+//            "leakcanary-android-no-op"          : "com.squareup.leakcanary:leakcanary-android-no-op:${version["leakcanaryVersion"]}",
+
+//            //multidex
+//            "multidex"                          : "com.android.support:multidex:1.0.3",
+
+            //other
+            "logger"                            : "com.orhanobut:logger:2.1.1",
+            "PersistentCookieJar"               : "com.github.franmontiel:PersistentCookieJar:v1.0.1",
+    ]
+}
