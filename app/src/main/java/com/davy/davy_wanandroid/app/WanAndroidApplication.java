@@ -3,13 +3,17 @@ package com.davy.davy_wanandroid.app;
 import android.app.Application;
 import android.content.Context;
 import android.support.annotation.NonNull;
-//import android.support.multidex.MultiDex;
+import android.support.multidex.MultiDex;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatDelegate;
 
 import com.bumptech.glide.Glide;
 import com.davy.davy_wanandroid.BuildConfig;
 import com.davy.davy_wanandroid.R;
+import com.davy.davy_wanandroid.di.component.ApplicationComponent;
+import com.davy.davy_wanandroid.di.component.DaggerApplicationComponent;
+import com.davy.davy_wanandroid.di.module.ApplicationModule;
+import com.davy.davy_wanandroid.di.module.HttpModule;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
@@ -21,8 +25,8 @@ import com.scwang.smartrefresh.layout.api.RefreshFooter;
 import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
-//import com.squareup.leakcanary.LeakCanary;
-//import com.squareup.leakcanary.RefWatcher;
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 
 /**
  * author: Davy
@@ -31,11 +35,17 @@ import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
 public class WanAndroidApplication extends Application {
 
     private static WanAndroidApplication instance;
-    //private RefWatcher mRefWatcher;
+    private RefWatcher mRefWatcher;
+    private ApplicationComponent mApplicationComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
+
+        mApplicationComponent = DaggerApplicationComponent.builder()
+                .applicationModule(new ApplicationModule(this))
+                .httpModule(new HttpModule())
+                .build();
 
 
         instance = this;
@@ -45,11 +55,11 @@ public class WanAndroidApplication extends Application {
         initLogger();
 
 
-//        if(LeakCanary.isInAnalyzerProcess(this)){
-//            return;
-//        }
-//
-//        mRefWatcher = LeakCanary.install(this);
+        if(LeakCanary.isInAnalyzerProcess(this)){
+            return;
+        }
+
+        mRefWatcher = LeakCanary.install(this);
     }
 
     //全局设置刷新头部和尾部,默认使用日间模式
@@ -78,10 +88,10 @@ public class WanAndroidApplication extends Application {
         return instance;
     }
 
-//    public static RefWatcher getRefWatcher(Context context){
-//        WanAndroidApplication application = (WanAndroidApplication) context.getApplicationContext();
-//        return application.mRefWatcher;
-//    }
+    public static RefWatcher getRefWatcher(Context context){
+        WanAndroidApplication application = (WanAndroidApplication) context.getApplicationContext();
+        return application.mRefWatcher;
+    }
 
     private void initGreenDao() {
     }
@@ -94,12 +104,12 @@ public class WanAndroidApplication extends Application {
         }
     }
 
-//    @Override
-//    protected void attachBaseContext(Context base) {
-//        super.attachBaseContext(base);
-//        MultiDex.install(this);
-//
-//    }
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+
+    }
 
     @Override
     public void onTrimMemory(int level) {
@@ -114,5 +124,17 @@ public class WanAndroidApplication extends Application {
     public void onLowMemory() {
         super.onLowMemory();
         Glide.get(this).clearMemory();
+    }
+
+    public ApplicationComponent getApplicationComponent(){
+        if(mApplicationComponent == null){
+            mApplicationComponent = DaggerApplicationComponent.builder()
+                    .applicationModule(new ApplicationModule(this))
+                    .httpModule(new HttpModule())
+                    .build();
+        }
+
+        return mApplicationComponent;
+
     }
 }

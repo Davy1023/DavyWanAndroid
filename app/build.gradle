@@ -12,8 +12,9 @@ android {
         versionCode rootProject.ext.android["versionCode"]
         versionName rootProject.ext.android["versionName"]
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
+
         multiDexEnabled true
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
     }
 
     signingConfigs {
@@ -32,13 +33,20 @@ android {
             signingConfig signingConfigs.config
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+
     buildToolsVersion '27.0.3'
 }
 
 dependencies {
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+
     implementation rootProject.ext.dependencies["appcompat-v7"]
+    implementation rootProject.ext.dependencies["support-v4"]
     implementation rootProject.ext.dependencies["design"]
     implementation rootProject.ext.dependencies["constraint-layout"]
 
@@ -61,19 +69,15 @@ dependencies {
 
     //di
     implementation rootProject.ext.dependencies["dagger"]
-    implementation rootProject.ext.dependencies["dagger-compiler"]
+    annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
 
     //leakcanary
-//    implementation rootProject.ext.dependencies["leakcanary-android"]
-//    implementation rootProject.ext.dependencies["leakcanary-android-no-op"]
+    debugImplementation rootProject.ext.dependencies["leakcanary-android"]
+    releaseImplementation rootProject.ext.dependencies["leakcanary-android-no-op"]
+    testImplementation rootProject.ext.dependencies["leakcanary-android-no-op"]
 
     //multidex
-//    implementation rootProject.ext.dependencies["multidex"]
-
-    //canary
-//    debugImplementation rootProject.ext.dependencies["leakcanary-android"]
-//    releaseImplementation rootProject.ext.dependencies["leakcanary-android-no-op"]
-//    testImplementation rootProject.ext.dependencies["leakcanary-android-no-op"]
+    implementation rootProject.ext.dependencies["multidex"]
 
     //other
     implementation rootProject.ext.dependencies["logger"]
@@ -82,17 +86,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
-    //UI测试
-//    androidTestImplementation (rootProject.ext.dependencies["espresso-core"]) {
-//        exclude group: 'com.android.support', module: 'support-annotations'
-//    }
-//    implementation (rootProject.ext.dependencies["espresso-idling-resource"]) {
-//        exclude module: 'support-annotations'
-//    }
-//    androidTestImplementation rootProject.ext.dependencies["espresso-contrib"]
-//    androidTestImplementation rootProject.ext.dependencies["espresso-intents"]
-//    androidTestImplementation rootProject.ext.dependencies["espresso-accessibility"]
-//    androidTestImplementation rootProject.ext.dependencies["espresso-web"]
-//    androidTestImplementation rootProject.ext.dependencies["idling-concurrent"]
+}
+repositories {
+    mavenCentral()
 }

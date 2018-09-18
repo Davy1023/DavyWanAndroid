@@ -1,5 +1,6 @@
 package com.davy.davy_wanandroid.di.component;
 
+import com.davy.davy_wanandroid.app.WanAndroidApplication;
 import com.davy.davy_wanandroid.core.http.api.WanAndroidApi;
 import com.davy.davy_wanandroid.di.module.ApplicationModule;
 import com.davy.davy_wanandroid.di.module.HttpModule;
@@ -16,5 +17,7 @@ import dagger.Component;
 @Component(modules = {ApplicationModule.class, HttpModule.class})
 public interface ApplicationComponent {
 
+    WanAndroidApplication getApplication();
     WanAndroidApi getWanAndroidApi();
+
 }
