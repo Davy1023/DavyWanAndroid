@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Davy-WanAndroid</string>
+    <string name="double_click_exit_message">再按一次后退键退出WanAndroid</string>
 </resources>

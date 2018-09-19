@@ -60,5 +60,7 @@ ext{
             //other
             "logger"                            : "com.orhanobut:logger:2.1.1",
             "PersistentCookieJar"               : "com.github.franmontiel:PersistentCookieJar:v1.0.1",
+            "fragmentation"                     : "me.yokeyword:fragmentation:${version["fragmentationVersion"]}",
+            "fragmentation-swipeback"           : "me.yokeyword:fragmentation-swipeback:${version["fragmentationVersion"]}",
     ]
 }
