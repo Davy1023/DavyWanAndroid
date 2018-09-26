@@ -3,6 +3,9 @@ package com.davy.davy_wanandroid.di.module;
 import android.content.Context;
 
 import com.davy.davy_wanandroid.app.WanAndroidApplication;
+import com.davy.davy_wanandroid.core.DataManager;
+import com.davy.davy_wanandroid.core.http.HttpHelper;
+import com.davy.davy_wanandroid.core.http.HttpHelperImpl;
 
 import javax.inject.Singleton;
 
@@ -32,5 +35,17 @@ public class ApplicationModule {
     @Provides
     Context provideContext(){
         return mContext;
+    }
+
+    @Singleton
+    @Provides
+    HttpHelper provideHttpHelper (HttpHelperImpl httpHelperImpl){
+        return httpHelperImpl;
+    }
+
+    @Singleton
+    @Provides
+    DataManager provideDataManager(HttpHelper httpHelper){
+        return new DataManager(httpHelper);
     }
 }

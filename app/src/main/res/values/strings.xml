@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Davy-WanAndroid</string>
     <string name="double_click_exit_message">再按一次后退键退出WanAndroid</string>
+
+    <!--登录注册-->
+    <string name="account_password_username_null">用户名或密码不能为空</string>
+    <string name="password_not_same">密码不匹配</string>
+    <string name="register_fail">注册失败</string>
+
+    <string name="http_error">网络异常</string>
+    <string name="unknow_error">未知错误</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.davy.davy_wanandroid.base.presenter;
 
 import com.davy.davy_wanandroid.base.view.AbstractView;
+import com.davy.davy_wanandroid.core.DataManager;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -15,9 +16,10 @@ public class BasePresenter<T extends AbstractView> implements AbstractPresenter<
 
     protected T mView;
     private CompositeDisposable mCompositeDisposable;
+    private DataManager mDataManager;
 
-    public BasePresenter(){
-
+    public BasePresenter(DataManager dataManager){
+        this.mDataManager = dataManager;
     }
 
     @Override
