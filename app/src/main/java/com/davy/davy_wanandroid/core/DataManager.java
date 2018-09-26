@@ -4,6 +4,8 @@ import com.davy.davy_wanandroid.bean.BaseResponse;
 import com.davy.davy_wanandroid.bean.main.LoginData;
 import com.davy.davy_wanandroid.core.http.HttpHelper;
 
+import javax.inject.Inject;
+
 import io.reactivex.Observable;
 
 /**

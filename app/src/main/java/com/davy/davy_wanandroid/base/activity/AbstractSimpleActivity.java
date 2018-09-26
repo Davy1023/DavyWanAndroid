@@ -3,6 +3,8 @@ package com.davy.davy_wanandroid.base.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.davy.davy_wanandroid.app.WanAndroidApplication;
+import com.davy.davy_wanandroid.base.inter.IBase;
 import com.davy.davy_wanandroid.utils.ActivityCollector;
 
 import butterknife.ButterKnife;
@@ -13,7 +15,7 @@ import me.yokeyword.fragmentation.SupportActivity;
  * author: Davy
  * date: 18/9/19
  */
-public abstract class AbstractSimpleActivity extends SupportActivity {
+public abstract class AbstractSimpleActivity extends SupportActivity implements IBase{
 
     private Unbinder mUnbinder;
     private AbstractSimpleActivity mActivity;
@@ -22,6 +24,7 @@ public abstract class AbstractSimpleActivity extends SupportActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
+        initInjector(WanAndroidApplication.getInstance().getApplicationComponent());
         mActivity = this;
         mUnbinder = ButterKnife.bind(this);
         ActivityCollector.getInstance().addActivity(this);

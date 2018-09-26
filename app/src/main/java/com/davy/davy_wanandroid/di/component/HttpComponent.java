@@ -1,6 +1,8 @@
 package com.davy.davy_wanandroid.di.component;
 
 import com.davy.davy_wanandroid.di.scope.CustomScopeName;
+import com.davy.davy_wanandroid.ui.main.RegisterActivity;
+
 import dagger.Component;
 
 /**
@@ -11,4 +13,5 @@ import dagger.Component;
 @Component(dependencies = ApplicationComponent.class)
 public interface HttpComponent {
 
+    void inject (RegisterActivity registerActivity);
 }

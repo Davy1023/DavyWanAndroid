@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.davy.davy_wanandroid.R;
 import com.davy.davy_wanandroid.app.Constants;
 import com.davy.davy_wanandroid.app.WanAndroidApplication;
+import com.davy.davy_wanandroid.base.inter.IBase;
 import com.davy.davy_wanandroid.utils.CommonUtils;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -20,7 +21,7 @@ import me.yokeyword.fragmentation.SupportFragment;
  * author: Davy
  * date: 18/9/19
  */
-public abstract class AbstactSimpleFragment extends SupportFragment {
+public abstract class AbstactSimpleFragment extends SupportFragment implements IBase{
 
     private Unbinder mUnbinder;
     private long clickTime;
@@ -33,6 +34,12 @@ public abstract class AbstactSimpleFragment extends SupportFragment {
         mUnbinder = ButterKnife.bind(this, view);
         initView();
         return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initInjector(WanAndroidApplication.getInstance().getApplicationComponent());
     }
 
     @Override
