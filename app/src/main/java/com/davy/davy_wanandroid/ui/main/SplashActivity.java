@@ -1,4 +1,4 @@
-package com.davy.davy_wanandroid.ui;
+package com.davy.davy_wanandroid.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;

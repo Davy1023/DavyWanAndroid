@@ -14,7 +14,14 @@ public interface HttpHelper {
      * @param username
      * @param password
      * @param repassword
-     * @return
+     * @return 注册数据
      */
     Observable<BaseResponse<LoginData>> getRegisterData(String username, String password, String repassword);
+
+    /**
+     * @param username
+     * @param password
+     * @return 登录数据
+     */
+    Observable<BaseResponse<LoginData>> getLoginData(String username, String password);
 }

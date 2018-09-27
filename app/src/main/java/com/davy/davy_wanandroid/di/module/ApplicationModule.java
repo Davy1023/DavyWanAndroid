@@ -6,6 +6,8 @@ import com.davy.davy_wanandroid.app.WanAndroidApplication;
 import com.davy.davy_wanandroid.core.DataManager;
 import com.davy.davy_wanandroid.core.http.HttpHelper;
 import com.davy.davy_wanandroid.core.http.HttpHelperImpl;
+import com.davy.davy_wanandroid.core.prefs.PreferencesHelper;
+import com.davy.davy_wanandroid.core.prefs.PreferencesHelperImpl;
 
 import javax.inject.Singleton;
 
@@ -45,7 +47,13 @@ public class ApplicationModule {
 
     @Singleton
     @Provides
-    DataManager provideDataManager(HttpHelper httpHelper){
-        return new DataManager(httpHelper);
+    PreferencesHelper providePreferencesHelper (PreferencesHelperImpl preferencesHelper){
+        return preferencesHelper;
+    }
+
+    @Singleton
+    @Provides
+    DataManager provideDataManager(HttpHelper httpHelper, PreferencesHelper preferencesHelper){
+        return new DataManager(httpHelper,preferencesHelper);
     }
 }

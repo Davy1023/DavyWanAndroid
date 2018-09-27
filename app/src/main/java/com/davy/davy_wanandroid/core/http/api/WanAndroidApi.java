@@ -18,6 +18,7 @@ public interface WanAndroidApi {
 
     /**
      * 注册
+     *
      * @param username
      * @param password
      * @param repassword
@@ -26,4 +27,15 @@ public interface WanAndroidApi {
     @POST("user/register")
     @FormUrlEncoded
     Observable<BaseResponse<LoginData>> getRegisterData(@Field("username") String username, @Field("password") String password, @Field("repassword") String repassword );
+
+    /**
+     * 登录
+     *
+     * @param username
+     * @param password
+     * @return 登录数据
+     */
+    @POST("user/login")
+    @FormUrlEncoded
+    Observable<BaseResponse<LoginData>> getLoginData(@Field("username") String username, @Field("password") String password);
 }

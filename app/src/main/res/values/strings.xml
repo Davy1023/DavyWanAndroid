@@ -5,6 +5,8 @@
     <!--登录注册-->
     <string name="account_password_username_null">用户名或密码不能为空</string>
     <string name="password_not_same">密码不匹配</string>
+    <string name="http_error">网络连接错误</string>
+    <string name="unknow_error">未知错误</string>
     <string name="register_fail">注册失败</string>
     <string name="register_account_hint">邮箱/手机号</string>
     <string name="register_password_hint">输入密码</string>
@@ -20,9 +22,9 @@
     <string name="auto_login_in">自动登录</string>
     <string name="logout">退出登录</string>
     <string name="login_tint">请先登录~~</string>
-    <string name="login_success">登录成功n(*≧▽≦*)n</string>
+    <string name="login_success">登录成功</string>
     <string name="account_password_null_tint">用户名或密码不能为空</string>
-    <string name="login_fail">登录失败ヽ(≧Д≦)ノ</string>
+    <string name="login_fail">登录失败</string>
     <string name="auto_login_success">自动登录成功</string>
 
 </resources>

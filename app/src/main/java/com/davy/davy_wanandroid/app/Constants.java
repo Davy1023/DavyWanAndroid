@@ -15,4 +15,13 @@ public class Constants {
     public static final String PATH_DATA = WanAndroidApplication.getInstance().getCacheDir().getAbsolutePath() + File.separator + "data";
 
     public static final String PATH_CACHE = PATH_DATA + "/WanAndroidCache";
+
+
+    /**
+     * SharedPreferences
+     */
+    public static final String SHARED_PREFERENCES = "wanAndroid_sharedPreferences";
+    public static final String ACCOUNT = "account";
+    public static final String PASSWORD = "password";
+    public static final String LOGIN_STATUS = "login_status";
 }

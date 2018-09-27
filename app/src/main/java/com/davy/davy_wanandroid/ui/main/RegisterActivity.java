@@ -14,7 +14,7 @@ import com.davy.davy_wanandroid.base.activity.BaseActivity;
 import com.davy.davy_wanandroid.contract.main.RegisterContract;
 import com.davy.davy_wanandroid.di.component.ApplicationComponent;
 import com.davy.davy_wanandroid.di.component.DaggerHttpComponent;
-import com.davy.davy_wanandroid.presenter.RegisterPresenter;
+import com.davy.davy_wanandroid.presenter.main.RegisterPresenter;
 import com.davy.davy_wanandroid.utils.CommonUtils;
 import com.davy.davy_wanandroid.utils.StatusBarUtli;
 import com.jakewharton.rxbinding2.view.RxView;
@@ -22,7 +22,6 @@ import com.jakewharton.rxbinding2.view.RxView;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Predicate;
 

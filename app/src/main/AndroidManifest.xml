@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.SplashActivity"
+            android:name=".ui.main.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,6 +28,12 @@
             android:screenOrientation="portrait"
             android:exported="false"
             android:windowSoftInputMode="stateVisible"/>
+
+        <activity android:name=".ui.main.LoginActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:exported="false"/>
+
     </application>
 
 </manifest>
