@@ -43,4 +43,14 @@ public class DataManager implements HttpHelper,PreferencesHelper {
     public void setLoginPassword(String password) {
         mPreferencesHelper.setLoginPassword(password);
     }
+
+    @Override
+    public void setCurrentPage(int page) {
+        mPreferencesHelper.setCurrentPage(page);
+    }
+
+    @Override
+    public void setNightModeState(boolean state) {
+        mPreferencesHelper.setNightModeState(state);
+    }
 }

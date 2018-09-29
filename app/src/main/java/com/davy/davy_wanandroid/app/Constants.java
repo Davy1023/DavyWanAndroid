@@ -24,4 +24,6 @@ public class Constants {
     public static final String ACCOUNT = "account";
     public static final String PASSWORD = "password";
     public static final String LOGIN_STATUS = "login_status";
+    public static final String Current_PAGE = "current_page";
+    public static final String NIGHT_MODE_STATE = "night_mode_state";
 }

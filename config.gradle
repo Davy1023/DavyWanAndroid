@@ -63,5 +63,6 @@ ext{
             "PersistentCookieJar"               : "com.github.franmontiel:PersistentCookieJar:v1.0.1",
             "fragmentation"                     : "me.yokeyword:fragmentation:${version["fragmentationVersion"]}",
             "fragmentation-swipeback"           : "me.yokeyword:fragmentation-swipeback:${version["fragmentationVersion"]}",
+            "ByeBurger"                         : "com.github.githubwing:ByeBurger:1.2.3",
     ]
 }

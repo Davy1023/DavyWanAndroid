@@ -35,4 +35,14 @@ public class PreferencesHelperImpl implements PreferencesHelper {
     public void setLoginPassword(String password) {
         mSharedPreferences.edit().putString(Constants.PASSWORD,password).apply();
     }
+
+    @Override
+    public void setCurrentPage(int position) {
+        mSharedPreferences.edit().putInt(Constants.Current_PAGE,position).apply();
+    }
+
+    @Override
+    public void setNightModeState(boolean state) {
+        mSharedPreferences.edit().putBoolean(Constants.NIGHT_MODE_STATE,state).apply();
+    }
 }
