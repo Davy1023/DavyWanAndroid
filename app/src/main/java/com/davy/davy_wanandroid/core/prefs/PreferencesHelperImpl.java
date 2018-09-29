@@ -45,4 +45,14 @@ public class PreferencesHelperImpl implements PreferencesHelper {
     public void setNightModeState(boolean state) {
         mSharedPreferences.edit().putBoolean(Constants.NIGHT_MODE_STATE,state).apply();
     }
+
+    @Override
+    public boolean getLoginStatus() {
+        return mSharedPreferences.getBoolean(Constants.LOGIN_STATUS,false);
+    }
+
+    @Override
+    public String getLoginAccount() {
+        return mSharedPreferences.getString(Constants.ACCOUNT,"");
+    }
 }

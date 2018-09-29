@@ -1,4 +1,4 @@
-package com.davy.davy_wanandroid.ui.main;
+package com.davy.davy_wanandroid.ui.main.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.davy.davy_wanandroid.R;
-import com.davy.davy_wanandroid.ui.main.MainActivity;
 
 public class SplashActivity extends AppCompatActivity {
     private Handler handler = new Handler();

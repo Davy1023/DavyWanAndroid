@@ -1,4 +1,4 @@
-package com.davy.davy_wanandroid.ui.main;
+package com.davy.davy_wanandroid.ui.main.activity;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
@@ -107,5 +107,4 @@ public class RegisterActivity extends BaseActivity<RegisterPresenter> implements
                 mPasswordEdit.getText().toString().trim(),
                 mConfirmPasswordEdit.getText().toString().trim());
     }
-
 }

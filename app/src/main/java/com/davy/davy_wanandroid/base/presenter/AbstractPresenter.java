@@ -32,22 +32,38 @@ public interface AbstractPresenter<T extends AbstractView> {
     boolean getNightModeState();
 
     /**
-     * 记录登录状态
+     * 保存登录状态
      * @param isLogin
      */
     void setLoginStatus(boolean isLogin);
 
     /**
-     * 记录登录账号
+     * 保存登录账号
      * @param account
      */
     void setLoginAccount(String account);
 
     /**
-     * 记录登录密码
+     * 保存登录密码
      * @param password
      */
     void setLoginPassword(String password);
+
+    /**
+     * 获取登录状态
+     * @return LoginStatus
+     */
+    boolean getLoginStatus();
+
+    /**
+     * 获取登录账号
+     * @return login account
+     */
+    String getLoginAccount();
+
+
+
+
 
     int getCurrentPage();
 }

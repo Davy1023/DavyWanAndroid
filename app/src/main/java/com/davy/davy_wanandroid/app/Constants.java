@@ -26,4 +26,21 @@ public class Constants {
     public static final String LOGIN_STATUS = "login_status";
     public static final String Current_PAGE = "current_page";
     public static final String NIGHT_MODE_STATE = "night_mode_state";
+
+    /**
+     * Tag Fragment
+     */
+    public static final int TYPY_MAIN_PAGER = 0;
+    public static final int TYPE_KNOWLEDGE = 1;
+    public static final int TYPE_NAVIGATION = 2;
+    public static final int TYPE_GIRLS = 3;
+    public static final int TYPE_COLLECT = 4;
+    public static final int TYPE_SETTING = 5;
+
+    /**
+     * Intent params
+     */
+    public static final String ARG_PARAM1 = "param1";
+    public static final String ARG_PARAM2 = "param2";
+
 }

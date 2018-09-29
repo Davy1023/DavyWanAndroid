@@ -33,6 +33,9 @@
     <string name="grils_picture">妹子福利</string>
     <string name="setting">设置</string>
 
+    <string name="error">加载失败</string>
+    <string name="reload">重新加载</string>
+
     <string name="fail_night_mode_cast">切换夜间模式失败</string>
 
     <!--behavior-->

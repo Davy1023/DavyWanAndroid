@@ -10,6 +10,8 @@ public interface AbstractView {
 
     void showLoading();
 
+    void showNormal();
+
     void showErrorMsg(String msg);
 
     void showError();

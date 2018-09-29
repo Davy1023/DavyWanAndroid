@@ -12,7 +12,7 @@ ext{
     ]
 
     version = [
-            supportLibraryVersion   :"26.0.2",
+            supportLibraryVersion   :"26.1.0",
             smartrefreshVersion     :"1.0.5.1",
             okhttpVersion           :"3.9.0",
             retrofitVersion         :"2.3.0",
@@ -64,5 +64,6 @@ ext{
             "fragmentation"                     : "me.yokeyword:fragmentation:${version["fragmentationVersion"]}",
             "fragmentation-swipeback"           : "me.yokeyword:fragmentation-swipeback:${version["fragmentationVersion"]}",
             "ByeBurger"                         : "com.github.githubwing:ByeBurger:1.2.3",
+            "lottie"                            : "com.airbnb.android:lottie:2.3.0",
     ]
 }

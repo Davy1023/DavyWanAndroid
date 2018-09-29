@@ -35,4 +35,16 @@ public interface PreferencesHelper {
      * @param state
      */
     void setNightModeState(boolean state);
+
+    /**
+     * 获取登录状态
+     * @return LoginStatus
+     */
+    boolean getLoginStatus();
+
+    /**
+     * 获取登录账号
+     * @return login account
+     */
+    String getLoginAccount();
 }

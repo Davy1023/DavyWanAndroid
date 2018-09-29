@@ -64,7 +64,22 @@ public abstract class BaseActivity<T extends AbstractPresenter> extends Abstract
     }
 
     @Override
+    public void showNormal() {
+
+    }
+
+    @Override
     public void reload() {
+
+    }
+
+    @Override
+    public void showLoginView() {
+
+    }
+
+    @Override
+    public void showLoginOutView() {
 
     }
 }
