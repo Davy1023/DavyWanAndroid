@@ -11,6 +11,32 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity
+            android:name=".ui.main.activity.SplashActivity"
+            android:screenOrientation="portrait">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.main.activity.MainActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask" />
+
+        <activity android:name=".ui.main.activity.LoginActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            android:exported="false" />
+
+        <activity android:name=".ui.main.activity.RegisterActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            android:exported="false"
+            android:windowSoftInputMode="stateVisible" />
+
     </application>
 
 </manifest>

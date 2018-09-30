@@ -25,6 +25,10 @@
     <string name="login_success">登录成功</string>
     <string name="account_password_null_tint">用户名或密码不能为空</string>
     <string name="login_fail">登录失败</string>
+    <string name="login_msg">请先登录</string>
+    <string name="is_login_out">退出登录？</string>
+    <string name="ok">是</string>
+    <string name="no">否</string>
     <string name="auto_login_success">自动登录成功</string>
 
     <string name="home_pager">首页</string>

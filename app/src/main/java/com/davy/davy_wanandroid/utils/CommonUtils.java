@@ -6,11 +6,14 @@ import android.net.ConnectivityManager;
 import android.support.design.widget.BaseTransientBottomBar;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.davy.davy_wanandroid.R;
 import com.davy.davy_wanandroid.app.WanAndroidApplication;
+import com.davy.davy_wanandroid.ui.main.activity.MainActivity;
 
 import java.util.logging.Logger;
 
@@ -51,5 +54,15 @@ public class CommonUtils {
                 activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
             }
         });
+    }
+
+    /**
+     * 消息提醒
+     * @param activity
+     * @param msg
+     */
+    public static void showMessage(Activity activity, int msg){
+        LogHelper.e("showMessage:" + msg);
+        Toast.makeText(activity,msg,Toast.LENGTH_SHORT).show();
     }
 }
