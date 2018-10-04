@@ -31,6 +31,12 @@ public interface PreferencesHelper {
     void setCurrentPage(int page);
 
     /**
+     * 获取当前page
+     * @return page
+     */
+    int getCurrentPage();
+
+    /**
      * 保存夜间模式状态
      * @param state
      */
@@ -47,4 +53,12 @@ public interface PreferencesHelper {
      * @return login account
      */
     String getLoginAccount();
+
+    /**
+     * 获取登录密码
+     * @return login password
+     */
+    String getLoginPassword();
+
+
 }

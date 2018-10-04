@@ -1,9 +1,13 @@
 package com.davy.davy_wanandroid.core;
 
 import com.davy.davy_wanandroid.bean.BaseResponse;
+import com.davy.davy_wanandroid.bean.main.BannerData;
 import com.davy.davy_wanandroid.bean.main.LoginData;
+import com.davy.davy_wanandroid.bean.main.WanAndroidArticleListData;
 import com.davy.davy_wanandroid.core.http.HttpHelper;
 import com.davy.davy_wanandroid.core.prefs.PreferencesHelper;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 
@@ -30,6 +34,26 @@ public class DataManager implements HttpHelper,PreferencesHelper {
     }
 
     @Override
+    public Observable<BaseResponse<List<BannerData>>> getBannerData() {
+        return mHttpHelper.getBannerData();
+    }
+
+    @Override
+    public Observable<BaseResponse<WanAndroidArticleListData>> getWanAndroidArticleListData(int pageNum) {
+        return mHttpHelper.getWanAndroidArticleListData(pageNum);
+    }
+
+    @Override
+    public Observable<BaseResponse<WanAndroidArticleListData>> addCollectArticle(int id) {
+        return mHttpHelper.addCollectArticle(id);
+    }
+
+    @Override
+    public Observable<BaseResponse<WanAndroidArticleListData>> cancelCollectArticle(int id) {
+        return mHttpHelper.cancelCollectArticle(id);
+    }
+
+    @Override
     public void setLoginStatus(boolean isLogin) {
         mPreferencesHelper.setLoginStatus(isLogin);
     }
@@ -50,6 +74,11 @@ public class DataManager implements HttpHelper,PreferencesHelper {
     }
 
     @Override
+    public int getCurrentPage() {
+        return mPreferencesHelper.getCurrentPage();
+    }
+
+    @Override
     public void setNightModeState(boolean state) {
         mPreferencesHelper.setNightModeState(state);
     }
@@ -62,5 +91,10 @@ public class DataManager implements HttpHelper,PreferencesHelper {
     @Override
     public String getLoginAccount() {
         return mPreferencesHelper.getLoginAccount();
+    }
+
+    @Override
+    public String getLoginPassword() {
+        return mPreferencesHelper.getLoginPassword();
     }
 }

@@ -61,8 +61,23 @@ public class CommonUtils {
      * @param activity
      * @param msg
      */
+    public static void showMessage(Activity activity, String msg){
+        LogHelper.e("showMessage:" + msg);
+        Toast.makeText(activity,msg,Toast.LENGTH_SHORT).show();
+    }
+
     public static void showMessage(Activity activity, int msg){
         LogHelper.e("showMessage:" + msg);
         Toast.makeText(activity,msg,Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * 泛型转换工具
+     * @param object
+     * @param <T> 转换得到的泛型对象
+     * @return T
+     */
+    public static <T> T cast(Object object){
+        return (T) object;
     }
 }

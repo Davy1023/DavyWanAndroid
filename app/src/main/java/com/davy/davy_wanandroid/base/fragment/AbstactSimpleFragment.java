@@ -103,7 +103,9 @@ public abstract class AbstactSimpleFragment extends SupportFragment implements I
     /**
      * 在onCreateview中做初始化工作
      */
-    protected abstract void initView();
+    protected void initView(){
+
+    }
 
     /**
      * 初始化数据

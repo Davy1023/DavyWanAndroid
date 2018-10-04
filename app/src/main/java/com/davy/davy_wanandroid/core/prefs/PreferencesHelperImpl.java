@@ -38,7 +38,12 @@ public class PreferencesHelperImpl implements PreferencesHelper {
 
     @Override
     public void setCurrentPage(int position) {
-        mSharedPreferences.edit().putInt(Constants.Current_PAGE,position).apply();
+        mSharedPreferences.edit().putInt(Constants.CURRENT_PAGE,position).apply();
+    }
+
+    @Override
+    public int getCurrentPage() {
+        return mSharedPreferences.getInt(Constants.CURRENT_PAGE, 0);
     }
 
     @Override
@@ -54,5 +59,10 @@ public class PreferencesHelperImpl implements PreferencesHelper {
     @Override
     public String getLoginAccount() {
         return mSharedPreferences.getString(Constants.ACCOUNT,"");
+    }
+
+    @Override
+    public String getLoginPassword() {
+        return mSharedPreferences.getString(Constants.PASSWORD, "");
     }
 }

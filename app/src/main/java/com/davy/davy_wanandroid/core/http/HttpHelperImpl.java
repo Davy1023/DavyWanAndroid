@@ -1,8 +1,12 @@
 package com.davy.davy_wanandroid.core.http;
 
 import com.davy.davy_wanandroid.bean.BaseResponse;
+import com.davy.davy_wanandroid.bean.main.BannerData;
 import com.davy.davy_wanandroid.bean.main.LoginData;
+import com.davy.davy_wanandroid.bean.main.WanAndroidArticleListData;
 import com.davy.davy_wanandroid.core.http.api.WanAndroidApi;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -17,16 +21,36 @@ public class HttpHelperImpl implements HttpHelper {
 
     @Inject
     public HttpHelperImpl(WanAndroidApi wanAndroidApi){
-        this.mWanAndroidApi = wanAndroidApi;
+        mWanAndroidApi = wanAndroidApi;
     }
 
     @Override
     public Observable<BaseResponse<LoginData>> getRegisterData(String username, String password, String repassword) {
-        return mWanAndroidApi.getRegisterData(username,password,repassword);
+        return mWanAndroidApi.getRegisterData(username, password, repassword);
     }
 
     @Override
     public Observable<BaseResponse<LoginData>> getLoginData(String username, String password) {
-        return mWanAndroidApi.getLoginData(username,password);
+        return mWanAndroidApi.getLoginData(username, password);
+    }
+
+    @Override
+    public Observable<BaseResponse<List<BannerData>>> getBannerData() {
+        return mWanAndroidApi.getBannerData();
+    }
+
+    @Override
+    public Observable<BaseResponse<WanAndroidArticleListData>> getWanAndroidArticleListData(int pageNum) {
+        return mWanAndroidApi.getWanAndroidArticleListData(pageNum);
+    }
+
+    @Override
+    public Observable<BaseResponse<WanAndroidArticleListData>> addCollectArticle(int id) {
+        return mWanAndroidApi.addCollectArticle(id);
+    }
+
+    @Override
+    public Observable<BaseResponse<WanAndroidArticleListData>> cancelCollectArticle(int id) {
+        return mWanAndroidApi.cancelCollectArticle(id, -1);
     }
 }

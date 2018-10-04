@@ -45,9 +45,10 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View> impl
                 .filter(new Predicate<LoginData>() {
                     @Override
                     public boolean test(LoginData loginData) throws Exception {
-                        return !TextUtils.isEmpty(username)&&!TextUtils.isEmpty(password)&&!TextUtils.isEmpty(repassword);
+                        return !TextUtils.isEmpty(username) && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(repassword);
                     }
-                }).subscribeWith(new BaseObsever<LoginData>(mView,WanAndroidApplication.getInstance().getString(R.string.register_fail)) {
+                })
+                .subscribeWith(new BaseObsever<LoginData>(mView,WanAndroidApplication.getInstance().getString(R.string.register_fail)) {
 
                     @Override
                     public void onNext(LoginData loginData) {

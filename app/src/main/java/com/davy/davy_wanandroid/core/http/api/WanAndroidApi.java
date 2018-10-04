@@ -1,12 +1,18 @@
 package com.davy.davy_wanandroid.core.http.api;
 
 import com.davy.davy_wanandroid.bean.BaseResponse;
+import com.davy.davy_wanandroid.bean.main.BannerData;
 import com.davy.davy_wanandroid.bean.main.LoginData;
+import com.davy.davy_wanandroid.bean.main.WanAndroidArticleListData;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 /**
  * author: Davy
@@ -38,4 +44,39 @@ public interface WanAndroidApi {
     @POST("user/login")
     @FormUrlEncoded
     Observable<BaseResponse<LoginData>> getLoginData(@Field("username") String username, @Field("password") String password);
+
+    /**
+     * 轮播图
+     *
+     * @return 轮播图数据
+     */
+    @GET("banner/json")
+    Observable<BaseResponse<List<BannerData>>> getBannerData();
+
+    /**
+     * 获取文章列表
+     *
+     * @param num 页数
+     * @return 文章列表数据
+     */
+    @GET("article/list/{num}/json")
+    Observable<BaseResponse<WanAndroidArticleListData>> getWanAndroidArticleListData(@Path("num") int num);
+
+    /**
+     * 收藏站内文章
+     *
+     * @param id 文章id
+     * @return 收藏id文章数据
+     */
+    @POST("lg/collect/{id}/json")
+    Observable<BaseResponse<WanAndroidArticleListData>> addCollectArticle(@Path("id") int id);
+
+    /**
+     * 取消站内收藏文章
+     *
+     * @param id
+     * @param originId
+     * @return 取消收藏id文章数据
+     */
+    Observable<BaseResponse<WanAndroidArticleListData>> cancelCollectArticle(@Path("id") int id, @Field("originId") int originId);
 }

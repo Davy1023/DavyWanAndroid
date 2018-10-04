@@ -72,7 +72,7 @@ public class BasePresenter<T extends AbstractView> implements AbstractPresenter<
 
     @Override
     public int getCurrentPage() {
-        return 0;
+        return mDataManager.getCurrentPage();
     }
 
     protected void addSubscribe(Disposable disposable) {

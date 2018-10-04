@@ -14,6 +14,7 @@ import com.davy.davy_wanandroid.di.component.ApplicationComponent;
 import com.davy.davy_wanandroid.di.component.DaggerHttpComponent;
 import com.davy.davy_wanandroid.presenter.main.LoginPresenter;
 import com.davy.davy_wanandroid.utils.CommonUtils;
+import com.davy.davy_wanandroid.utils.LogHelper;
 import com.davy.davy_wanandroid.utils.StatusBarUtli;
 import com.jakewharton.rxbinding2.view.RxView;
 
@@ -107,7 +108,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void showLoginSuccess() {
-        CommonUtils.showSnackMessage(this,getString(R.string.login_success));
+        CommonUtils.showMessage(this,getString(R.string.login_success));
         onBackPressedSupport();
     }
 

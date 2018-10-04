@@ -41,14 +41,12 @@ public class WanAndroidApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        instance = this;
 
         mApplicationComponent = DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule(this))
                 .httpModule(new HttpModule())
                 .build();
-
-
-        instance = this;
 
         initGreenDao();
 
@@ -61,6 +59,7 @@ public class WanAndroidApplication extends Application {
 
         mRefWatcher = LeakCanary.install(this);
     }
+
 
     //全局设置刷新头部和尾部,默认使用日间模式
     static {
@@ -84,7 +83,7 @@ public class WanAndroidApplication extends Application {
         });
     }
 
-    public static synchronized WanAndroidApplication getInstance(){
+    public static WanAndroidApplication getInstance(){
         return instance;
     }
 

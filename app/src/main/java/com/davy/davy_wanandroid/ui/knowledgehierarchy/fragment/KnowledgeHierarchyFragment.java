@@ -1,7 +1,8 @@
-package com.davy.davy_wanandroid.ui.knowledge.fragment;
+package com.davy.davy_wanandroid.ui.knowledgehierarchy.fragment;
 
 import android.os.Bundle;
 
+import com.davy.davy_wanandroid.R;
 import com.davy.davy_wanandroid.app.Constants;
 import com.davy.davy_wanandroid.base.fragment.BaseRootFragment;
 import com.davy.davy_wanandroid.di.component.ApplicationComponent;
@@ -23,7 +24,7 @@ public class KnowledgeHierarchyFragment extends BaseRootFragment {
 
     @Override
     protected int getLayoutId() {
-        return 0;
+        return R.layout.fragment_main_pager;
     }
 
     @Override

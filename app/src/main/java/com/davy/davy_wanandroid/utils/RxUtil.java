@@ -1,6 +1,7 @@
 package com.davy.davy_wanandroid.utils;
 
 import com.davy.davy_wanandroid.bean.BaseResponse;
+import com.davy.davy_wanandroid.bean.main.WanAndroidArticleListData;
 import com.davy.davy_wanandroid.core.http.exception.OtherException;
 
 import org.reactivestreams.Publisher;
@@ -74,6 +75,32 @@ public class RxUtil {
             }
         };
     }
+
+    /**
+     * 收藏返回结果的处理
+     * @param <T> 指定的泛型类型
+     * @return ObservableTransformer
+     */
+    public static <T> ObservableTransformer<BaseResponse<T>, T> hanleCollteResult(){
+        return new ObservableTransformer<BaseResponse<T>, T>() {
+            @Override
+            public ObservableSource<T> apply(Observable<BaseResponse<T>> responseObservable) {
+                return responseObservable.flatMap(new Function<BaseResponse<T>, ObservableSource<T>>() {
+                    @Override
+                    public ObservableSource<T> apply(BaseResponse<T> baseResponse) throws Exception {
+                        if(baseResponse.getErrorCode() == BaseResponse.SUCCESS && CommonUtils.isNetWorkConnected()){
+                            return (ObservableSource<T>) createData(CommonUtils.cast(new WanAndroidArticleListData()));
+                        }else{
+                            return Observable.error(new OtherException());
+                        }
+
+                    }
+                });
+            }
+        };
+    }
+
+
 
     /**
      * 得到 Observable

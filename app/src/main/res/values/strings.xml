@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Davy-WanAndroid</string>
+    <string name="app_name">玩Android</string>
     <string name="double_click_exit_message">再按一次后退键退出WanAndroid</string>
 
     <!--登录注册-->
@@ -37,8 +37,24 @@
     <string name="grils_picture">妹子福利</string>
     <string name="setting">设置</string>
 
+    <string name="navigation_open">打开</string>
+    <string name="navigation_close">关闭</string>
+
     <string name="error">加载失败</string>
     <string name="reload">重新加载</string>
+
+    <!--首页模块-->
+    <string name="fail_banner_data">获取轮播图数据失败</string>
+    <string name="fail_article_data">获取文章列表数据失败</string>
+    <string name="collet_success">收藏成功</string>
+    <string name="cancel_collet_success">取消收藏成功</string>
+    <string name="fail_collect">文章收藏失败</string>
+    <string name="fail_cancle_collect">文章取消收藏失败</string>
+    <string name="share_view">shareView</string>
+    <string name="minute">分钟</string>
+    <string name="hour">小时</string>
+    <string name="one_day">1天</string>
+    <string name="text_new">新</string>
 
     <string name="fail_night_mode_cast">切换夜间模式失败</string>
 

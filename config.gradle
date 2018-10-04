@@ -26,12 +26,14 @@ ext{
     dependencies = [
             "support-v4"                        : "com.android.support:support-v4:${version["supportLibraryVersion"]}",
             "appcompat-v7"                      : "com.android.support:appcompat-v7:${version["supportLibraryVersion"]}",
+            "cardview-v7"                       : "com.android.support:cardview-v7:${version["supportLibraryVersion"]}",
             "design"                            : "com.android.support:design:${version["supportLibraryVersion"]}",
             "constraint-layout"                 : "com.android.support.constraint:constraint-layout:1.0.2",
 
             //ui
             "SmartRefreshLayout"                :"com.scwang.smartrefresh:SmartRefreshLayout:${version["smartrefreshVersion"]}",
             "SmartRefreshHeader"                : "com.scwang.smartrefresh:SmartRefreshHeader:${version["smartrefreshVersion"]}",
+            "banner"                            : "com.youth.banner:banner:1.4.10",
 
             //rxjava
             "rxjava"                            : "io.reactivex.rxjava2:rxjava:2.1.5",
@@ -65,5 +67,6 @@ ext{
             "fragmentation-swipeback"           : "me.yokeyword:fragmentation-swipeback:${version["fragmentationVersion"]}",
             "ByeBurger"                         : "com.github.githubwing:ByeBurger:1.2.3",
             "lottie"                            : "com.airbnb.android:lottie:2.3.0",
+            "BaseRecyclerViewAdapterHelper"     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34",
     ]
 }

@@ -30,7 +30,7 @@
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/main_floating_action_btn"
             style="@style/style_float_btn"
-            android:layout_marginBottom="@dimen/dp_60"
+            android:layout_marginBottom="@dimen/dp_51"
             android:layout_marginEnd="@dimen/dp_16"
             android:src="@drawable/icon_up_arrow"
             app:layout_behavior="@string/scale_down_behavior" />

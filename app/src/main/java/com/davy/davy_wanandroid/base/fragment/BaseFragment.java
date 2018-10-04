@@ -17,7 +17,7 @@ import javax.inject.Inject;
 public abstract class BaseFragment<T extends AbstractPresenter> extends AbstactSimpleFragment implements AbstractView {
 
     @Inject
-    T mPresenter;
+    protected T mPresenter;
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -34,6 +34,28 @@ public abstract class BaseFragment<T extends AbstractPresenter> extends AbstactS
             mPresenter = null;
         }
         super.onDestroyView();
+    }
+
+    @Override
+    public void useNightMode(boolean isNightMode) {
+
+    }
+
+    @Override
+    public void showCollectSucces() {
+
+    }
+
+    @Override
+    public void showCancleCollectSucces() {
+
+    }
+
+    @Override
+    public void showErrorMsg(String msg) {
+        if(isAdded()){
+            CommonUtils.showSnackMessage(_mActivity, msg);
+        }
     }
 
     @Override

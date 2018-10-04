@@ -55,7 +55,7 @@ public abstract class BaseActivity<T extends AbstractPresenter> extends Abstract
 
     @Override
     public void showErrorMsg(String msg) {
-
+        CommonUtils.showSnackMessage(this, msg);
     }
 
     @Override
@@ -80,6 +80,16 @@ public abstract class BaseActivity<T extends AbstractPresenter> extends Abstract
 
     @Override
     public void showLoginOutView() {
+
+    }
+
+    @Override
+    public void showCollectSucces() {
+
+    }
+
+    @Override
+    public void showCancleCollectSucces() {
 
     }
 }

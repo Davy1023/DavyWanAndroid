@@ -2,18 +2,20 @@ package com.davy.davy_wanandroid.ui.main.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.davy.davy_wanandroid.R;
@@ -26,19 +28,22 @@ import com.davy.davy_wanandroid.di.component.ApplicationComponent;
 import com.davy.davy_wanandroid.di.component.DaggerHttpComponent;
 import com.davy.davy_wanandroid.presenter.main.MainPresenter;
 import com.davy.davy_wanandroid.ui.girls.fragment.GrilsFragment;
-import com.davy.davy_wanandroid.ui.knowledge.fragment.KnowledgeHierarchyFragment;
+import com.davy.davy_wanandroid.ui.knowledgehierarchy.fragment.KnowledgeHierarchyFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.CollectFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.MainPagerFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.SettingFragment;
 import com.davy.davy_wanandroid.ui.navigation.fragment.NavigationFragment;
+import com.davy.davy_wanandroid.utils.BottomNavigationViewHelper;
 import com.davy.davy_wanandroid.utils.CommonAlertDialog;
 import com.davy.davy_wanandroid.utils.CommonUtils;
+import com.davy.davy_wanandroid.utils.LogHelper;
 import com.davy.davy_wanandroid.utils.RxBus;
 import com.davy.davy_wanandroid.utils.StatusBarUtli;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
 
@@ -47,8 +52,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     TextView mToolbarTitleTv;
     @BindView(R.id.common_toolbar)
     Toolbar mToolbar;
-    @BindView(R.id.fragment_group)
-    FrameLayout fragmentGroup;
     @BindView(R.id.main_floating_action_btn)
     FloatingActionButton mFloatingActionBtn;
     @BindView(R.id.bottom_navigation_view)
@@ -73,6 +76,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     @Override
     public void initInjector(ApplicationComponent applicationComponent) {
+        LogHelper.e("applicationComponent" + applicationComponent);
         DaggerHttpComponent.builder()
                 .applicationComponent(applicationComponent)
                 .build()
@@ -119,6 +123,15 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressedSupport() {
+        if(getSupportFragmentManager().getBackStackEntryCount() > 1){
+            pop();
+        }else{
+            ActivityCompat.finishAfterTransition(this);
+        }
     }
 
     private void initPager(boolean isRecreate, int position) {
@@ -200,6 +213,29 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     }
 
+    @OnClick({R.id.main_floating_action_btn})
+        void onClick(View view){
+            switch (view.getId()){
+                case R.id.main_floating_action_btn:
+                    jumpToTop();
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+    private void jumpToTop() {
+        switch (mPresenter.getCurrentPage()){
+            case Constants.TYPY_MAIN_PAGER:
+                if(mMainPagerFragment != null){
+                    mMainPagerFragment.jumpToTop();
+                }
+
+        }
+    }
+
+
     private void logOut() {
         CommonAlertDialog.newInstance().showDialog(this, getString(R.string.is_login_out), getString(R.string.ok),
                 getString(R.string.no), new View.OnClickListener() {
@@ -245,9 +281,63 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     }
 
     private void initBottomNavigationView() {
+        BottomNavigationViewHelper.disableShiftMode(mBottomNavigationView);
+        mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.tab_main_pager:
+                        loadPager(getString(R.string.home_pager), mMainPagerFragment, 0, Constants.TYPY_MAIN_PAGER);
+                        break;
+                    case R.id.tab_knowledge_hierarchy:
+                        loadPager(getString(R.string.knowledge_hierarchy), mKnowledgeHierarchyFragment, 1, Constants.TYPE_KNOWLEDGE);
+                        break;
+                    case R.id.tab_navigation:
+                        loadPager(getString(R.string.navigation), mNavigationFragment, 2, Constants.TYPE_NAVIGATION);
+                        break;
+                    case R.id.tab_grils:
+                        loadPager(getString(R.string.grils_picture), mGrilsFragment, 3, Constants.TYPE_GIRLS);
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    private void loadPager(String title, BaseFragment fragment, int position, int typePage){
+        mToolbarTitleTv.setText(title);
+        fragment.reload();
+        switchFragment(position);
+        mPresenter.setCurrentPage(typePage);
+
     }
 
     private void initDrawerLayout() {
+        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this,mDrawerLayout,mToolbar,R.string.navigation_open,R.string.navigation_close){
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                super.onDrawerSlide(drawerView, slideOffset);
+                View mContent = mDrawerLayout.getChildAt(0);
+                float scale = 1 - slideOffset;
+                float endScale = 0.8f + scale * 0.2f;
+                float startScale = 1 - 0.3f * scale;
+
+                drawerView.setScaleX(startScale);
+                drawerView.setScaleY(startScale);
+                drawerView.setAlpha(0.6f + 0.4f * (1 - scale));
+
+                mContent.setTranslationX(drawerView.getMeasuredWidth() * (1 - scale));
+                mContent.invalidate();
+                mContent.setScaleX(endScale);
+                mContent.setScaleY(endScale);
+
+            }
+        };
+        drawerToggle.syncState();
+        mDrawerLayout.addDrawerListener(drawerToggle);
+
     }
 
     /**
@@ -286,12 +376,14 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     @Override
     public void showSwitchNavigation() {
-
+        if(mBottomNavigationView != null){
+            mBottomNavigationView.setSelectedItemId(R.id.tab_navigation);
+        }
     }
 
     @Override
     public void showAutoLoginView() {
-
+        showLoginView();
     }
 
     @Override
@@ -321,4 +413,9 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         mNavigationView.getMenu().findItem(R.id.nav_item_logout).setVisible(false);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        CommonAlertDialog.newInstance().isCancelDialog(true);
+    }
 }

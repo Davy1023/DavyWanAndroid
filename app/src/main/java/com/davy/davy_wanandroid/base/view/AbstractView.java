@@ -22,6 +22,10 @@ public interface AbstractView {
 
     void showLoginOutView();
 
+    void showCollectSucces();
+
+    void showCancleCollectSucces();
+
     void useNightMode(boolean isNightMode);
 
     void showSnackBar(String msg);

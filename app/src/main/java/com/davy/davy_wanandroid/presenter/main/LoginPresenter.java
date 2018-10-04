@@ -11,6 +11,7 @@ import com.davy.davy_wanandroid.bean.main.LoginData;
 import com.davy.davy_wanandroid.contract.main.LoginContract;
 import com.davy.davy_wanandroid.core.DataManager;
 import com.davy.davy_wanandroid.core.event.LoginEvent;
+import com.davy.davy_wanandroid.utils.LogHelper;
 import com.davy.davy_wanandroid.utils.RxBus;
 import com.davy.davy_wanandroid.utils.RxUtil;
 
@@ -46,8 +47,12 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
                         RxBus.getDefault().post(new LoginEvent(true));
 
                         mView.showLoginSuccess();
+
+                      LogHelper.e("loginData" + loginData);
                     }
                 })
+
         );
+
     }
 }

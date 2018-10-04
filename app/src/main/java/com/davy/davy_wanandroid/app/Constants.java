@@ -24,7 +24,7 @@ public class Constants {
     public static final String ACCOUNT = "account";
     public static final String PASSWORD = "password";
     public static final String LOGIN_STATUS = "login_status";
-    public static final String Current_PAGE = "current_page";
+    public static final String CURRENT_PAGE = "current_page";
     public static final String NIGHT_MODE_STATE = "night_mode_state";
 
     /**
@@ -42,5 +42,13 @@ public class Constants {
      */
     public static final String ARG_PARAM1 = "param1";
     public static final String ARG_PARAM2 = "param2";
+
+    /**
+     * MainPager data
+     */
+
+    public static final String LOGIN_DATA = "login_data";
+    public static final String Banner_DATA = "banner_data";
+    public static final String ARTICLE_LIST_DATA = "article_list_data";
 
 }
