@@ -52,6 +52,16 @@ public abstract class BaseFragment<T extends AbstractPresenter> extends AbstactS
     }
 
     @Override
+    public void showLoginView() {
+
+    }
+
+    @Override
+    public void showLoginOutView() {
+
+    }
+
+    @Override
     public void showErrorMsg(String msg) {
         if(isAdded()){
             CommonUtils.showSnackMessage(_mActivity, msg);

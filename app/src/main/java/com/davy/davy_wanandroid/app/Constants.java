@@ -1,5 +1,7 @@
 package com.davy.davy_wanandroid.app;
 
+import com.davy.davy_wanandroid.R;
+
 import java.io.File;
 
 /**
@@ -50,5 +52,10 @@ public class Constants {
     public static final String LOGIN_DATA = "login_data";
     public static final String Banner_DATA = "banner_data";
     public static final String ARTICLE_LIST_DATA = "article_list_data";
+
+    /**
+     * Refresh theme color
+     */
+    public static final int BLUE_COLOR = R.color.colorPrimary;
 
 }

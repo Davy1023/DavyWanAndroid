@@ -1,6 +1,7 @@
 package com.davy.davy_wanandroid.core;
 
 import com.davy.davy_wanandroid.bean.BaseResponse;
+import com.davy.davy_wanandroid.bean.knowledgehierarchy.KnowledgeHierarchyData;
 import com.davy.davy_wanandroid.bean.main.BannerData;
 import com.davy.davy_wanandroid.bean.main.LoginData;
 import com.davy.davy_wanandroid.bean.main.WanAndroidArticleListData;
@@ -51,6 +52,11 @@ public class DataManager implements HttpHelper,PreferencesHelper {
     @Override
     public Observable<BaseResponse<WanAndroidArticleListData>> cancelCollectArticle(int id) {
         return mHttpHelper.cancelCollectArticle(id);
+    }
+
+    @Override
+    public Observable<BaseResponse<List<KnowledgeHierarchyData>>> getKnowledgeHierarchyData() {
+        return mHttpHelper.getKnowledgeHierarchyData();
     }
 
     @Override

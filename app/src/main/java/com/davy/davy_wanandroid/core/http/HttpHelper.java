@@ -1,6 +1,7 @@
 package com.davy.davy_wanandroid.core.http;
 
 import com.davy.davy_wanandroid.bean.BaseResponse;
+import com.davy.davy_wanandroid.bean.knowledgehierarchy.KnowledgeHierarchyData;
 import com.davy.davy_wanandroid.bean.main.BannerData;
 import com.davy.davy_wanandroid.bean.main.LoginData;
 import com.davy.davy_wanandroid.bean.main.WanAndroidArticleListData;
@@ -55,4 +56,10 @@ public interface HttpHelper {
      * @return 站内文章id数据
      */
     Observable<BaseResponse<WanAndroidArticleListData>> cancelCollectArticle(int id);
+
+    /**
+     * 获取知识体系列表数据
+     * @return 知识体系列表数据
+     */
+    Observable<BaseResponse<List<KnowledgeHierarchyData>>> getKnowledgeHierarchyData();
  }

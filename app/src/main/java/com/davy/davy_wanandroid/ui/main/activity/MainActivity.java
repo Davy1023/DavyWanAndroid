@@ -231,7 +231,12 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 if(mMainPagerFragment != null){
                     mMainPagerFragment.jumpToTop();
                 }
-
+                break;
+            case Constants.TYPE_KNOWLEDGE:
+                if(mKnowledgeHierarchyFragment != null){
+                    mKnowledgeHierarchyFragment.jumpToTop();
+                }
+                break;
         }
     }
 

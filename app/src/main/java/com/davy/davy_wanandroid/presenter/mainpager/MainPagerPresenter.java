@@ -1,4 +1,4 @@
-package com.davy.davy_wanandroid.presenter;
+package com.davy.davy_wanandroid.presenter.mainpager;
 
 import com.davy.davy_wanandroid.R;
 import com.davy.davy_wanandroid.app.Constants;

@@ -55,6 +55,10 @@
     <string name="hour">小时</string>
     <string name="one_day">1天</string>
     <string name="text_new">新</string>
+    
+    <!--知识体系模块-->
+    <string name="fial_knowledgehierarchy_data">获取知识体系列表数据失败</string>
+    <string name="load_more_no_data">已无更多加载数据</string>
 
     <string name="fail_night_mode_cast">切换夜间模式失败</string>
 

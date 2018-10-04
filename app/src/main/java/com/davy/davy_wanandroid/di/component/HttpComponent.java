@@ -1,6 +1,7 @@
 package com.davy.davy_wanandroid.di.component;
 
 import com.davy.davy_wanandroid.di.scope.CustomScopeName;
+import com.davy.davy_wanandroid.ui.knowledgehierarchy.fragment.KnowledgeHierarchyFragment;
 import com.davy.davy_wanandroid.ui.main.activity.LoginActivity;
 import com.davy.davy_wanandroid.ui.main.activity.MainActivity;
 import com.davy.davy_wanandroid.ui.main.activity.RegisterActivity;
@@ -21,4 +22,7 @@ public interface HttpComponent {
     void inject (LoginActivity loginActivity);
     void inject (MainActivity mainActivity);
     void inject (MainPagerFragment mainPagerFragment);
+    //知识体系
+    void inject (KnowledgeHierarchyFragment knowledgeHierarchyFragment);
+
 }

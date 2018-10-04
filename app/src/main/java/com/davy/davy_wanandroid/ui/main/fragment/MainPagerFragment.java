@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.davy.davy_wanandroid.R;
@@ -21,7 +20,7 @@ import com.davy.davy_wanandroid.core.event.AutoLoginEvent;
 import com.davy.davy_wanandroid.core.event.LoginEvent;
 import com.davy.davy_wanandroid.di.component.ApplicationComponent;
 import com.davy.davy_wanandroid.di.component.DaggerHttpComponent;
-import com.davy.davy_wanandroid.presenter.MainPagerPresenter;
+import com.davy.davy_wanandroid.presenter.mainpager.MainPagerPresenter;
 import com.davy.davy_wanandroid.ui.mainpager.adapter.ArticleListAdapter;
 import com.davy.davy_wanandroid.utils.CommonUtils;
 import com.davy.davy_wanandroid.utils.GlideImageLoader;
@@ -30,7 +29,6 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
-import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -39,7 +37,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * author: Davy
@@ -165,6 +162,7 @@ public class MainPagerFragment extends BaseRootFragment<MainPagerPresenter> impl
             mRecyclerView.smoothScrollToPosition(0);
         }
     }
+
     @Override
     public void showError() {
         mRecyclerView.setVisibility(View.INVISIBLE);

@@ -1,6 +1,7 @@
 package com.davy.davy_wanandroid.core.http.api;
 
 import com.davy.davy_wanandroid.bean.BaseResponse;
+import com.davy.davy_wanandroid.bean.knowledgehierarchy.KnowledgeHierarchyData;
 import com.davy.davy_wanandroid.bean.main.BannerData;
 import com.davy.davy_wanandroid.bean.main.LoginData;
 import com.davy.davy_wanandroid.bean.main.WanAndroidArticleListData;
@@ -79,4 +80,12 @@ public interface WanAndroidApi {
      * @return 取消收藏id文章数据
      */
     Observable<BaseResponse<WanAndroidArticleListData>> cancelCollectArticle(@Path("id") int id, @Field("originId") int originId);
+
+    /**
+     * 知识体系
+     *
+     * @return 知识体系数据
+     */
+    @GET("tree/json")
+    Observable<BaseResponse<List<KnowledgeHierarchyData>>> getKnowledgeHierarchyData();
 }
