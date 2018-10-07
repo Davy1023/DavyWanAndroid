@@ -59,4 +59,14 @@ public class HttpHelperImpl implements HttpHelper {
     public Observable<BaseResponse<List<KnowledgeHierarchyData>>> getKnowledgeHierarchyData() {
         return mWanAndroidApi.getKnowledgeHierarchyData();
     }
+
+    @Override
+    public Observable<BaseResponse<WanAndroidArticleListData>> getKnowledgeHierarchyDetailData(int page, int id) {
+        return mWanAndroidApi.getKnowledgeHierarchyDetailData(page, id);
+    }
+
+    @Override
+    public Observable<BaseResponse<WanAndroidArticleListData>> cancelCollectPageArticle(int id) {
+        return mWanAndroidApi.cancelCollectPageArticle(id, -1);
+    }
 }

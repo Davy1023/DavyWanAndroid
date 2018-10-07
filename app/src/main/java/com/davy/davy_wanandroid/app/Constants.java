@@ -58,4 +58,39 @@ public class Constants {
      */
     public static final int BLUE_COLOR = R.color.colorPrimary;
 
+    /**
+     * Phone MANUFACTURER
+     */
+    public static final String SAMSUNG = "samsung";
+
+    /**
+     * share key
+     */
+    public static final String AUTO_CACHE_STATE = "auto_cache_state";
+    public static final String NO_IMAGE_STATE = "no_image_state";
+
+
+    public static final String ARTICLE_LINK = "article_link";
+
+    public static final String ARTICLE_TITLE = "article_title";
+
+    public static final String ARTICLE_ID = "article_id";
+
+    public static final String IS_COLLECT = "is_collect";
+
+    public static final String IS_COMMON_SITE = "is_common_site";
+
+    public static final String IS_COLLECT_PAGE = "is_collect_page";
+
+    public static final String CHAPTER_ID = "chapter_id";
+
+    public static final String IS_SINGLE_CHAPTER = "is_single_chapter";
+
+    public static final String CHAPTER_NAME = "is_chapter_name";
+
+    public static final String SUPER_CHAPTER_NAME = "super_chapter_name";
+
+
+    public static final String MENU_BUILDER = "MenuBuilder";
+
 }

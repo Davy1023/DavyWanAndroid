@@ -60,5 +60,13 @@ public interface PreferencesHelper {
      */
     String getLoginPassword();
 
+    boolean getAutoCacheState();
+
+    boolean getNoImageState();
+
+    void setAutoCacheState(boolean b);
+
+    void setNoImageState(boolean b);
+
 
 }

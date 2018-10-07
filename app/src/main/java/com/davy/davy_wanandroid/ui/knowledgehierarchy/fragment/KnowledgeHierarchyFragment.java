@@ -1,5 +1,9 @@
 package com.davy.davy_wanandroid.ui.knowledgehierarchy.fragment;
 
+import android.app.ActivityOptions;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.SyncStateContract;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.davy.davy_wanandroid.R;
 import com.davy.davy_wanandroid.app.Constants;
 import com.davy.davy_wanandroid.base.fragment.BaseRootFragment;
@@ -16,6 +21,7 @@ import com.davy.davy_wanandroid.contract.KnowledgeHierarchy.KnowledgeHierarchyCo
 import com.davy.davy_wanandroid.di.component.ApplicationComponent;
 import com.davy.davy_wanandroid.di.component.DaggerHttpComponent;
 import com.davy.davy_wanandroid.presenter.KnowledgeHierarchy.KnowledgeHierarchyPresenter;
+import com.davy.davy_wanandroid.ui.knowledgehierarchy.activity.KnowledgeHierarchyDetailActivity;
 import com.davy.davy_wanandroid.ui.knowledgehierarchy.adapter.KnowledgeHierarchyAdapter;
 import com.davy.davy_wanandroid.utils.CommonUtils;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -75,9 +81,34 @@ public class KnowledgeHierarchyFragment extends BaseRootFragment<KnowledgeHierar
     private void initRecyclerView() {
         mKnowledgeHierarchyDataList = new ArrayList<>();
         mHierarchyAdapter = new KnowledgeHierarchyAdapter(R.layout.item_knowledge_hierarchy, mKnowledgeHierarchyDataList);
+        mHierarchyAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                startDetailPager(view, position);
+            }
+        });
         mRecyclerView.setLayoutManager(new LinearLayoutManager(_mActivity));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mHierarchyAdapter);
+    }
+
+    private void startDetailPager(View view, int position) {
+        if(mHierarchyAdapter.getData().size() <= 0 || mHierarchyAdapter.getData().size() <= position){
+            return;
+        }
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(_mActivity, view, getString(R.string.share_view));
+        Intent intent = new Intent(_mActivity, KnowledgeHierarchyDetailActivity.class);
+        intent.putExtra(Constants.ARG_PARAM1, mHierarchyAdapter.getData().get(position));
+        if(modleFiltering()){
+            startActivity(intent, options.toBundle());
+        }else{
+            startActivity(intent);
+        }
+    }
+
+    //机型适配
+    private boolean modleFiltering() {
+        return !Build.MANUFACTURER.contains(Constants.SAMSUNG) && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
     }
 
     @Override

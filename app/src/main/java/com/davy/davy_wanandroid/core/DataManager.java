@@ -60,6 +60,16 @@ public class DataManager implements HttpHelper,PreferencesHelper {
     }
 
     @Override
+    public Observable<BaseResponse<WanAndroidArticleListData>> getKnowledgeHierarchyDetailData(int page, int id) {
+        return mHttpHelper.getKnowledgeHierarchyDetailData(page, id);
+    }
+
+    @Override
+    public Observable<BaseResponse<WanAndroidArticleListData>> cancelCollectPageArticle(int id) {
+        return mHttpHelper.cancelCollectPageArticle(id);
+    }
+
+    @Override
     public void setLoginStatus(boolean isLogin) {
         mPreferencesHelper.setLoginStatus(isLogin);
     }
@@ -102,5 +112,25 @@ public class DataManager implements HttpHelper,PreferencesHelper {
     @Override
     public String getLoginPassword() {
         return mPreferencesHelper.getLoginPassword();
+    }
+
+    @Override
+    public boolean getAutoCacheState() {
+        return mPreferencesHelper.getAutoCacheState();
+    }
+
+    @Override
+    public boolean getNoImageState() {
+        return mPreferencesHelper.getNoImageState();
+    }
+
+    @Override
+    public void setAutoCacheState(boolean b) {
+        mPreferencesHelper.setAutoCacheState(b);
+    }
+
+    @Override
+    public void setNoImageState(boolean b) {
+        mPreferencesHelper.setNoImageState(b);
     }
 }

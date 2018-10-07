@@ -76,7 +76,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     @Override
     public void initInjector(ApplicationComponent applicationComponent) {
-        LogHelper.e("applicationComponent" + applicationComponent);
         DaggerHttpComponent.builder()
                 .applicationComponent(applicationComponent)
                 .build()

@@ -37,7 +37,7 @@ public interface HttpHelper {
     Observable<BaseResponse<List<BannerData>>> getBannerData();
 
     /**
-     * 获取文章列表
+     * 文章列表
      * @param pageNum 页数
      * @return 文章数据
      */
@@ -58,8 +58,23 @@ public interface HttpHelper {
     Observable<BaseResponse<WanAndroidArticleListData>> cancelCollectArticle(int id);
 
     /**
-     * 获取知识体系列表数据
+     * 知识体系
      * @return 知识体系列表数据
      */
     Observable<BaseResponse<List<KnowledgeHierarchyData>>> getKnowledgeHierarchyData();
+
+    /**
+     * 知识体系下的详细文章列表
+     * @param page 页数
+     * @param id 文章id
+     * @return 详细文章列表数据
+     */
+    Observable<BaseResponse<WanAndroidArticleListData>> getKnowledgeHierarchyDetailData(int page, int id);
+
+    /**
+     * 取消收藏页面的文章
+     * @param id
+     * @return 收藏列表数据
+     */
+    Observable<BaseResponse<WanAndroidArticleListData>> cancelCollectPageArticle(int id);
  }

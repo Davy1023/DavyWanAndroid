@@ -2,8 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.davy.davy_wanandroid">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
         android:name=".app.WanAndroidApplication"
         android:allowBackup="true"
@@ -39,6 +44,15 @@
             android:exported="false"
             android:windowSoftInputMode="stateVisible" />
 
+        <activity android:name=".ui.knowledgehierarchy.activity.KnowledgeHierarchyDetailActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            android:exported="false" />
+
+        <activity android:name=".ui.knowledgehierarchy.activity.ArticleDetailActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            android:exported="false" />
     </application>
 
 </manifest>

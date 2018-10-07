@@ -1,6 +1,8 @@
 package com.davy.davy_wanandroid.ui.main.fragment;
 
+import android.app.ActivityOptions;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.davy.davy_wanandroid.R;
 import com.davy.davy_wanandroid.app.Constants;
 import com.davy.davy_wanandroid.base.fragment.BaseRootFragment;
@@ -18,12 +21,15 @@ import com.davy.davy_wanandroid.bean.main.WanAndroidArticleListData;
 import com.davy.davy_wanandroid.contract.mainpager.MainPagerContract;
 import com.davy.davy_wanandroid.core.event.AutoLoginEvent;
 import com.davy.davy_wanandroid.core.event.LoginEvent;
+import com.davy.davy_wanandroid.core.event.SwitchNavigatinEvent;
 import com.davy.davy_wanandroid.di.component.ApplicationComponent;
 import com.davy.davy_wanandroid.di.component.DaggerHttpComponent;
 import com.davy.davy_wanandroid.presenter.mainpager.MainPagerPresenter;
+import com.davy.davy_wanandroid.ui.main.activity.LoginActivity;
 import com.davy.davy_wanandroid.ui.mainpager.adapter.ArticleListAdapter;
 import com.davy.davy_wanandroid.utils.CommonUtils;
 import com.davy.davy_wanandroid.utils.GlideImageLoader;
+import com.davy.davy_wanandroid.utils.KnowledgeUtils;
 import com.davy.davy_wanandroid.utils.RxBus;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -55,6 +61,7 @@ public class MainPagerFragment extends BaseRootFragment<MainPagerPresenter> impl
     private Banner mBanner;
     private List<String> mBannerTitleList;
     private List<String> mBannerUrlList;
+    private int mArticlePosition;
 
     public static MainPagerFragment getInstance(boolean param1, String param2) {
         MainPagerFragment fragment = new MainPagerFragment();
@@ -109,7 +116,18 @@ public class MainPagerFragment extends BaseRootFragment<MainPagerPresenter> impl
     private void initRecyclerView() {
        mWanAndroidArticleData = new ArrayList<>();
        mArticleListAdapter = new ArticleListAdapter(R.layout.item_pager, mWanAndroidArticleData);
-
+       mArticleListAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+           @Override
+           public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+               startDetailPager(view, position);
+           }
+       });
+       mArticleListAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+           @Override
+           public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+               clickChildEvent(view, position);
+           }
+       });
        mRecyclerView.setLayoutManager(new LinearLayoutManager(_mActivity));
        mRecyclerView.setHasFixedSize(true);
         LinearLayout mHeaderGroup = (LinearLayout) LayoutInflater.from(_mActivity).inflate(R.layout.head_banner, null);
@@ -190,12 +208,18 @@ public class MainPagerFragment extends BaseRootFragment<MainPagerPresenter> impl
 
     @Override
     public void showCollectSucces() {
-
+        if(mArticleListAdapter != null && mArticleListAdapter.getData().size() > mArticlePosition){
+            mArticleListAdapter.getData().get(mArticlePosition).setCollect(true);
+            mArticleListAdapter.setData(mArticlePosition, mArticleListAdapter.getData().get(mArticlePosition));
+        }
     }
 
     @Override
     public void showCancleCollectSucces() {
-
+        if(mArticleListAdapter != null && mArticleListAdapter.getData().size() > mArticlePosition){
+            mArticleListAdapter.getData().get(mArticlePosition).setCollect(false);
+            mArticleListAdapter.setData(mArticlePosition, mArticleListAdapter.getData().get(mArticlePosition));
+        }
     }
 
     @Override
@@ -245,6 +269,74 @@ public class MainPagerFragment extends BaseRootFragment<MainPagerPresenter> impl
     public void showCancleCollectArticleData(int position, WanAndroidArticleData wanAndroidArticleData, WanAndroidArticleListData wanAndroidArticleListData) {
         mArticleListAdapter.addData(position,wanAndroidArticleData);
         CommonUtils.showSnackMessage(_mActivity, getString(R.string.cancel_collet_success));
+    }
+
+    private void clickChildEvent(View view, int position) {
+        switch (view.getId()){
+            case R.id.item_pager_chapterName:
+                startSingleChapterKnowledgePager(position);
+                break;
+            case R.id.item_pager_like_iv:
+                likeEvent(position);
+                break;
+            case R.id.item_pager_tag_red_tv:
+                clickTag(position);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void clickTag(int position) {
+        if(mArticleListAdapter.getData().size() <= 0 || mArticleListAdapter.getData().size() <= position){
+            return;
+        }
+        String superChapterName = mArticleListAdapter.getData().get(position).getSuperChapterName();
+        if(superChapterName.contains(getString(R.string.navigation))){
+            RxBus.getDefault().post(new SwitchNavigatinEvent());
+        }
+    }
+
+    private void likeEvent(int position) {
+        if(!mPresenter.getLoginStatus()){
+            startActivity(new Intent(_mActivity, LoginActivity.class));
+            CommonUtils.showSnackMessage(_mActivity, getString(R.string.login_tint));
+        }
+        if(mArticleListAdapter.getData().size() <= 0 || mArticleListAdapter.getData().size() <= position){
+            return;
+        }
+        if(mArticleListAdapter.getData().get(position).isCollect()){
+            mPresenter.cancelCollectArticle(position, mArticleListAdapter.getData().get(position));
+        }else{
+            mPresenter.addCollectArticle(position, mArticleListAdapter.getData().get(position));
+        }
+    }
+
+    private void startSingleChapterKnowledgePager(int position) {
+        if(mArticleListAdapter.getData().size() <= 0 || mArticleListAdapter.getData().size() <= position){
+            return;
+        }
+        KnowledgeUtils.startKnowledgeHierarchyDetailActivity(_mActivity,
+                true,
+                mArticleListAdapter.getData().get(position).getSuperChapterName(),
+                mArticleListAdapter.getData().get(position).getChapterName(),
+                mArticleListAdapter.getData().get(position).getChapterId());
+    }
+
+    private void startDetailPager(View view, int position) {
+        if(mArticleListAdapter.getData().size() <= 0 || mArticleListAdapter.getData().size() <= position){
+            return;
+        }
+        mArticlePosition = position;
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(_mActivity, view, getString(R.string.share_view));
+        KnowledgeUtils.startArticleDetailActivity(_mActivity,
+                options,
+                mArticleListAdapter.getData().get(position).getId(),
+                mArticleListAdapter.getData().get(position).getTitle().trim(),
+                mArticleListAdapter.getData().get(position).getLink().trim(),
+                mArticleListAdapter.getData().get(position).isCollect(),
+                false,
+                false);
     }
 
     @Override

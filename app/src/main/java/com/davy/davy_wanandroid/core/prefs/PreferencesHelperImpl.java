@@ -65,4 +65,24 @@ public class PreferencesHelperImpl implements PreferencesHelper {
     public String getLoginPassword() {
         return mSharedPreferences.getString(Constants.PASSWORD, "");
     }
+
+    @Override
+    public boolean getAutoCacheState() {
+        return mSharedPreferences.getBoolean(Constants.AUTO_CACHE_STATE, true);
+    }
+
+    @Override
+    public boolean getNoImageState() {
+        return mSharedPreferences.getBoolean(Constants.NO_IMAGE_STATE, false);
+    }
+
+    @Override
+    public void setAutoCacheState(boolean b) {
+        mSharedPreferences.edit().putBoolean(Constants.AUTO_CACHE_STATE, b).apply();
+    }
+
+    @Override
+    public void setNoImageState(boolean b) {
+        mSharedPreferences.edit().putBoolean(Constants.NO_IMAGE_STATE, b).apply();
+    }
 }

@@ -50,7 +50,6 @@
     <string name="cancel_collet_success">取消收藏成功</string>
     <string name="fail_collect">文章收藏失败</string>
     <string name="fail_cancle_collect">文章取消收藏失败</string>
-    <string name="share_view">shareView</string>
     <string name="minute">分钟</string>
     <string name="hour">小时</string>
     <string name="one_day">1天</string>
@@ -59,8 +58,18 @@
     <!--知识体系模块-->
     <string name="fial_knowledgehierarchy_data">获取知识体系列表数据失败</string>
     <string name="load_more_no_data">已无更多加载数据</string>
-
     <string name="fail_night_mode_cast">切换夜间模式失败</string>
+
+    //文章详情
+    <string name="share">分享</string>
+    <string name="cancel_collect">取消收藏</string>
+    <string name="failed_to_obtain_collection_data">获取收藏数据失败</string>
+    <string name="open_it_with_browser">用系统浏览器打开</string>
+    <string name="share_type_url">%1$s分享【%2$s】专题：%3$s</string>
+    <string name="write_permission_not_allowed">获取写入权限失败</string>
+
+    <!--transitionName-->
+    <string name="share_view">shareView</string>
 
     <!--behavior-->
     <string name="scale_down_behavior">com.davy.davy_wanandroid.widget.behavior.ScaleDownShowBehavior</string>

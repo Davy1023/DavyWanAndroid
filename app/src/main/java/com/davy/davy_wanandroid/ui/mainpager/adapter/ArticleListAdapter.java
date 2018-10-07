@@ -31,7 +31,7 @@ public class ArticleListAdapter extends BaseQuickAdapter<WanAndroidArticleData, 
     @Override
     protected void convert(KnowledgeListViewHolder viewHolder, WanAndroidArticleData article) {
         if(!TextUtils.isEmpty(article.getTitle())){
-            viewHolder.setTag(R.id.item_pager_title, Html.fromHtml(article.getTitle()));
+            viewHolder.setText(R.id.item_pager_title, Html.fromHtml(article.getTitle()));
         }
         if(article.isCollect() || isColletPage){
             viewHolder.setImageResource(R.id.item_pager_like_iv,R.drawable.icon_like);

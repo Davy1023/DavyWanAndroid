@@ -14,6 +14,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * author: Davy
@@ -79,6 +80,8 @@ public interface WanAndroidApi {
      * @param originId
      * @return 取消收藏id文章数据
      */
+    @POST("lg/uncollect_originId/{id}/json")
+    @FormUrlEncoded
     Observable<BaseResponse<WanAndroidArticleListData>> cancelCollectArticle(@Path("id") int id, @Field("originId") int originId);
 
     /**
@@ -88,4 +91,25 @@ public interface WanAndroidApi {
      */
     @GET("tree/json")
     Observable<BaseResponse<List<KnowledgeHierarchyData>>> getKnowledgeHierarchyData();
+
+    /**
+     * 知识体系下的详细文章列表
+     *
+     * @param page page页数
+     * @param id 文章id
+     * @return 纤细文章列表
+     */
+    @GET("article/list/{page}/json")
+    Observable<BaseResponse<WanAndroidArticleListData>> getKnowledgeHierarchyDetailData(@Path("page") int page, @Query("cid") int id);
+
+    /**
+     * 取消收藏页面的文章
+     *
+     * @param id
+     * @param originId
+     * @return 收藏页面的数据
+     */
+    @POST("lg/uncollect/{id}/json")
+    @FormUrlEncoded
+    Observable<BaseResponse<WanAndroidArticleListData>> cancelCollectPageArticle(@Path("id") int id, @Field("originId") int originId);
 }

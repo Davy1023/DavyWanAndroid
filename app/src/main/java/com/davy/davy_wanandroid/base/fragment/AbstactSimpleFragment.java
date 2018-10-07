@@ -25,7 +25,7 @@ public abstract class AbstactSimpleFragment extends SupportFragment implements I
 
     private Unbinder mUnbinder;
     private long clickTime;
-    private boolean isInnerFragment;
+    public boolean isInnerFragment;
 
     @Nullable
     @Override
