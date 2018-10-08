@@ -8,6 +8,7 @@ import com.davy.davy_wanandroid.ui.knowledgehierarchy.fragment.KnowledgeHierarch
 import com.davy.davy_wanandroid.ui.main.activity.LoginActivity;
 import com.davy.davy_wanandroid.ui.main.activity.MainActivity;
 import com.davy.davy_wanandroid.ui.main.activity.RegisterActivity;
+import com.davy.davy_wanandroid.ui.main.fragment.CollectFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.MainPagerFragment;
 
 import dagger.Component;
@@ -25,6 +26,7 @@ public interface HttpComponent {
     void inject (LoginActivity loginActivity);
     void inject (MainActivity mainActivity);
     void inject (MainPagerFragment mainPagerFragment);
+    void inject (CollectFragment collectFragment);
     //知识体系
     void inject (KnowledgeHierarchyFragment knowledgeHierarchyFragment);
     void inject (KnowledgeHierarchyDetailActivity knowledgeHierarchyDetailActivity);

@@ -69,4 +69,9 @@ public class HttpHelperImpl implements HttpHelper {
     public Observable<BaseResponse<WanAndroidArticleListData>> cancelCollectPageArticle(int id) {
         return mWanAndroidApi.cancelCollectPageArticle(id, -1);
     }
+
+    @Override
+    public Observable<BaseResponse<WanAndroidArticleListData>> getCollectArticleList(int page) {
+        return mWanAndroidApi.getCollectArticleList(page);
+    }
 }

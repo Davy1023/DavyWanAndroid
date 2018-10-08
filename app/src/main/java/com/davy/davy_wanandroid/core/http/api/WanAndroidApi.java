@@ -103,13 +103,23 @@ public interface WanAndroidApi {
     Observable<BaseResponse<WanAndroidArticleListData>> getKnowledgeHierarchyDetailData(@Path("page") int page, @Query("cid") int id);
 
     /**
-     * 取消收藏页面的文章
+     * 取消收藏列表文章
      *
      * @param id
      * @param originId
-     * @return 收藏页面的数据
+     * @return 收藏id文章的数据
      */
     @POST("lg/uncollect/{id}/json")
     @FormUrlEncoded
     Observable<BaseResponse<WanAndroidArticleListData>> cancelCollectPageArticle(@Path("id") int id, @Field("originId") int originId);
+
+    /**
+     * 收藏列表
+     *
+     * @param page
+     * @return 收藏列表数据
+     */
+    @GET("lg/collect/list/{page}/json")
+    Observable<BaseResponse<WanAndroidArticleListData>> getCollectArticleList(@Path("page") int page);
+
 }

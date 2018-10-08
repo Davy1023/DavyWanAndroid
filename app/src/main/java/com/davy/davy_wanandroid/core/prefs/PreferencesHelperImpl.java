@@ -23,7 +23,7 @@ public class PreferencesHelperImpl implements PreferencesHelper {
 
     @Override
     public void setLoginStatus(boolean isLogin) {
-        mSharedPreferences.edit().putBoolean(Constants.LOGIN_STATUS,isLogin);
+        mSharedPreferences.edit().putBoolean(Constants.LOGIN_STATUS,isLogin).apply();
     }
 
     @Override

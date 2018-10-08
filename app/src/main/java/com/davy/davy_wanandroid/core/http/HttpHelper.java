@@ -72,9 +72,17 @@ public interface HttpHelper {
     Observable<BaseResponse<WanAndroidArticleListData>> getKnowledgeHierarchyDetailData(int page, int id);
 
     /**
-     * 取消收藏页面的文章
+     * 取消收藏列表的文章
      * @param id
-     * @return 收藏列表数据
+     * @return 收藏id文章数据
      */
     Observable<BaseResponse<WanAndroidArticleListData>> cancelCollectPageArticle(int id);
+
+    /**
+     * 获取收藏列表
+     * @param page
+     * @return 收藏列表数据
+     */
+    Observable<BaseResponse<WanAndroidArticleListData>> getCollectArticleList (int page);
+
  }

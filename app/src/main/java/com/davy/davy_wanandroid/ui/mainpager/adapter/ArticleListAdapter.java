@@ -28,6 +28,21 @@ public class ArticleListAdapter extends BaseQuickAdapter<WanAndroidArticleData, 
         super(layoutResId, data);
     }
 
+    public void isColletPage(){
+        isColletPage = true;
+        notifyDataSetChanged();
+    }
+
+    public void isSerchPage(){
+        isSerchPage = true;
+        notifyDataSetChanged();
+    }
+
+    public void isNightMode(boolean isNightMode){
+        this.isNightMode = isNightMode;
+        notifyDataSetChanged();
+    }
+
     @Override
     protected void convert(KnowledgeListViewHolder viewHolder, WanAndroidArticleData article) {
         if(!TextUtils.isEmpty(article.getTitle())){

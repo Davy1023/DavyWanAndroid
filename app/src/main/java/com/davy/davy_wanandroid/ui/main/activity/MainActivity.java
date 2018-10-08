@@ -36,7 +36,6 @@ import com.davy.davy_wanandroid.ui.navigation.fragment.NavigationFragment;
 import com.davy.davy_wanandroid.utils.BottomNavigationViewHelper;
 import com.davy.davy_wanandroid.utils.CommonAlertDialog;
 import com.davy.davy_wanandroid.utils.CommonUtils;
-import com.davy.davy_wanandroid.utils.LogHelper;
 import com.davy.davy_wanandroid.utils.RxBus;
 import com.davy.davy_wanandroid.utils.StatusBarUtli;
 

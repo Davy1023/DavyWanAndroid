@@ -41,6 +41,7 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
                 .subscribeWith(new BaseObsever<LoginData>(mView, WanAndroidApplication.getInstance().getString(R.string.login_fail)) {
                     @Override
                     public void onNext(LoginData loginData) {
+
                         setLoginAccount(loginData.getUsername());
                         setLoginPassword(loginData.getPassword());
                         setLoginStatus(true);

@@ -70,6 +70,11 @@ public class DataManager implements HttpHelper,PreferencesHelper {
     }
 
     @Override
+    public Observable<BaseResponse<WanAndroidArticleListData>> getCollectArticleList(int page) {
+        return mHttpHelper.getCollectArticleList(page);
+    }
+
+    @Override
     public void setLoginStatus(boolean isLogin) {
         mPreferencesHelper.setLoginStatus(isLogin);
     }
