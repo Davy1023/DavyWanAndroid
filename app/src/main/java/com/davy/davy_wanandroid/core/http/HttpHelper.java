@@ -5,6 +5,7 @@ import com.davy.davy_wanandroid.bean.knowledgehierarchy.KnowledgeHierarchyData;
 import com.davy.davy_wanandroid.bean.main.BannerData;
 import com.davy.davy_wanandroid.bean.main.LoginData;
 import com.davy.davy_wanandroid.bean.main.WanAndroidArticleListData;
+import com.davy.davy_wanandroid.bean.navigation.NavigationListData;
 
 import java.util.List;
 
@@ -84,5 +85,11 @@ public interface HttpHelper {
      * @return 收藏列表数据
      */
     Observable<BaseResponse<WanAndroidArticleListData>> getCollectArticleList (int page);
+
+    /**
+     * 获取导航列表
+     * @return 导航列表数据
+     */
+    Observable<BaseResponse<List<NavigationListData>>> getNavigationListData();
 
  }

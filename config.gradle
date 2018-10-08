@@ -35,6 +35,7 @@ ext{
             "SmartRefreshHeader"                : "com.scwang.smartrefresh:SmartRefreshHeader:${version["smartrefreshVersion"]}",
             "banner"                            : "com.youth.banner:banner:1.4.10",
             "FlycoTabLayout_Lib"                : "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar",
+            "VerticalTabLayout"                 : "q.rorbin:VerticalTabLayout:1.2.5",
 
             //rxjava
             "rxjava"                            : "io.reactivex.rxjava2:rxjava:2.1.5",

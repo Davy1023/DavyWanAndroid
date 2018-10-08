@@ -5,6 +5,7 @@ import com.davy.davy_wanandroid.bean.knowledgehierarchy.KnowledgeHierarchyData;
 import com.davy.davy_wanandroid.bean.main.BannerData;
 import com.davy.davy_wanandroid.bean.main.LoginData;
 import com.davy.davy_wanandroid.bean.main.WanAndroidArticleListData;
+import com.davy.davy_wanandroid.bean.navigation.NavigationListData;
 
 import java.util.List;
 
@@ -121,5 +122,13 @@ public interface WanAndroidApi {
      */
     @GET("lg/collect/list/{page}/json")
     Observable<BaseResponse<WanAndroidArticleListData>> getCollectArticleList(@Path("page") int page);
+
+    /**
+     * 导航
+     *
+     * @return 导航列表数据
+     */
+    @GET("navi/json")
+    Observable<BaseResponse<List<NavigationListData>>> getNavigationListData();
 
 }

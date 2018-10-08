@@ -56,6 +56,7 @@ dependencies {
     implementation rootProject.ext.dependencies["SmartRefreshHeader"]
     implementation rootProject.ext.dependencies["banner"]
     implementation rootProject.ext.dependencies["FlycoTabLayout_Lib"]
+    implementation rootProject.ext.dependencies["VerticalTabLayout"]
 
     //net
     implementation rootProject.ext.dependencies["glide"]
