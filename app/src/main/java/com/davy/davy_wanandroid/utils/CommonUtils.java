@@ -2,6 +2,7 @@ package com.davy.davy_wanandroid.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.support.design.widget.BaseTransientBottomBar;
 import android.support.design.widget.Snackbar;
@@ -15,6 +16,7 @@ import com.davy.davy_wanandroid.R;
 import com.davy.davy_wanandroid.app.WanAndroidApplication;
 import com.davy.davy_wanandroid.ui.main.activity.MainActivity;
 
+import java.util.Random;
 import java.util.logging.Logger;
 
 /**
@@ -79,5 +81,28 @@ public class CommonUtils {
      */
     public static <T> T cast(Object object){
         return (T) object;
+    }
+
+    /**
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     */
+    public static int dp2px(float dpValue) {
+        final float scale = WanAndroidApplication.getInstance().getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
+
+    /**
+     * 获取随机rgb颜色值
+     */
+    public static int randomColor() {
+        Random random = new Random();
+        //0-190, 如果颜色值过大,就越接近白色,就看不清了,所以需要限定范围
+        int red =random.nextInt(150);
+        //0-190
+        int green =random.nextInt(150);
+        //0-190
+        int blue =random.nextInt(150);
+        //使用rgb混合生成一种新的颜色,Color.rgb生成的是一个int数
+        return Color.rgb(red,green, blue);
     }
 }

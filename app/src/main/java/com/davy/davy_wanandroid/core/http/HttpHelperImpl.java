@@ -78,6 +78,6 @@ public class HttpHelperImpl implements HttpHelper {
 
     @Override
     public Observable<BaseResponse<List<NavigationListData>>> getNavigationListData() {
-        return getNavigationListData();
+        return mWanAndroidApi.getNavigationListData();
     }
 }

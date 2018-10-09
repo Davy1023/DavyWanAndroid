@@ -57,6 +57,7 @@ dependencies {
     implementation rootProject.ext.dependencies["banner"]
     implementation rootProject.ext.dependencies["FlycoTabLayout_Lib"]
     implementation rootProject.ext.dependencies["VerticalTabLayout"]
+    implementation rootProject.ext.dependencies["flowlayout-lib"]
 
     //net
     implementation rootProject.ext.dependencies["glide"]
