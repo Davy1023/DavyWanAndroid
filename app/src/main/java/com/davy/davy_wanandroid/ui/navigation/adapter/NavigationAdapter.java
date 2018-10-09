@@ -32,8 +32,9 @@ public class NavigationAdapter extends BaseQuickAdapter<NavigationListData, Navi
 
     @Override
     protected void convert(NavigationViewHolder viewHolder, NavigationListData item) {
-        if(!TextUtils.isEmpty(item.getName())){
+        if(!TextUtils.isEmpty(item.getName())) {
             viewHolder.setText(R.id.item_navigation_tv, item.getName());
+        }
             final TagFlowLayout mTagFlowLayout = viewHolder.getView(R.id.item_navigation_flow_layout);
             final List<WanAndroidArticleData> articles = item.getArticles();
             mTagFlowLayout.setAdapter(new TagAdapter<WanAndroidArticleData>(articles) {
@@ -60,7 +61,6 @@ public class NavigationAdapter extends BaseQuickAdapter<NavigationListData, Navi
                     return mTvName;
                 }
             });
-        }
     }
 
     private void startDetailPager(View view, int position, FlowLayout parent, List<WanAndroidArticleData> articles) {

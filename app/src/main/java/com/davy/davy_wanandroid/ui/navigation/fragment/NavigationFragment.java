@@ -1,11 +1,9 @@
 package com.davy.davy_wanandroid.ui.navigation.fragment;
 
 import android.os.Bundle;
-import android.provider.SyncStateContract;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.InputFilter;
 import android.view.View;
 import android.widget.LinearLayout;
 
