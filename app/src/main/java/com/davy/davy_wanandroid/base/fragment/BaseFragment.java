@@ -62,6 +62,26 @@ public abstract class BaseFragment<T extends AbstractPresenter> extends AbstactS
     }
 
     @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void showNormal() {
+
+    }
+
+    @Override
+    public void showError() {
+
+    }
+
+    @Override
+    public void reload() {
+
+    }
+
+    @Override
     public void showErrorMsg(String msg) {
         if(isAdded()){
             CommonUtils.showSnackMessage(_mActivity, msg);

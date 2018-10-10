@@ -57,7 +57,12 @@
 
     <!--收藏-->
     <string name="no_collect">暂无收藏数据，请添加收藏文章吧</string>
-    
+
+    <!--设置-->
+    <string name="setting_cache">自动缓存</string>
+    <string name="setting_night">夜间模式</string>
+    <string name="setting_clear">清除缓存</string>
+
     <!--知识体系模块-->
     <string name="fial_knowledgehierarchy_data">获取知识体系列表数据失败</string>
     <string name="load_more_no_data">已无更多加载数据</string>

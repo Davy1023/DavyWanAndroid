@@ -131,17 +131,12 @@ public class DataManager implements HttpHelper,PreferencesHelper {
     }
 
     @Override
-    public boolean getNoImageState() {
-        return mPreferencesHelper.getNoImageState();
-    }
-
-    @Override
     public void setAutoCacheState(boolean b) {
         mPreferencesHelper.setAutoCacheState(b);
     }
 
     @Override
-    public void setNoImageState(boolean b) {
-        mPreferencesHelper.setNoImageState(b);
+    public boolean getNightModeState() {
+        return mPreferencesHelper.getNightModeState();
     }
 }

@@ -40,8 +40,6 @@ public interface ArticleDetailContract {
 
         boolean getAutoCacheState();
 
-        boolean getNoImageState();
-
         /**
          * 收藏文章
          * @param id

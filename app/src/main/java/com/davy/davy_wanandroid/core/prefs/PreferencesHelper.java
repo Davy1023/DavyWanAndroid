@@ -60,13 +60,21 @@ public interface PreferencesHelper {
      */
     String getLoginPassword();
 
+    /**
+     * 获取自动缓存状态值
+     * @return 缓存状态值
+     */
     boolean getAutoCacheState();
 
-    boolean getNoImageState();
-
+    /**
+     * 设置自动缓存状态
+     * @param b
+     */
     void setAutoCacheState(boolean b);
 
-    void setNoImageState(boolean b);
-
-
+    /**
+     * 获取夜间模式状态
+     * @return 夜间模式状态
+     */
+    boolean getNightModeState();
 }

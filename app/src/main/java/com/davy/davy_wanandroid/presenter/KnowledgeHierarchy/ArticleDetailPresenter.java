@@ -37,11 +37,6 @@ public class ArticleDetailPresenter extends BasePresenter<ArticleDetailContract.
     }
 
     @Override
-    public boolean getNoImageState() {
-        return mDataManager.getNoImageState();
-    }
-
-    @Override
     public void addCollectArtitle(int id) {
         addSubscribe(mDataManager.addCollectArticle(id)
                 .compose(RxUtil.<BaseResponse<WanAndroidArticleListData>>rxScheduleHelper())

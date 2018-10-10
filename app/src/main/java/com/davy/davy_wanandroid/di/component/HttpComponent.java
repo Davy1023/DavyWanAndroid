@@ -10,6 +10,7 @@ import com.davy.davy_wanandroid.ui.main.activity.MainActivity;
 import com.davy.davy_wanandroid.ui.main.activity.RegisterActivity;
 import com.davy.davy_wanandroid.ui.main.fragment.CollectFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.MainPagerFragment;
+import com.davy.davy_wanandroid.ui.main.fragment.SettingFragment;
 import com.davy.davy_wanandroid.ui.navigation.fragment.NavigationFragment;
 
 import dagger.Component;
@@ -28,6 +29,7 @@ public interface HttpComponent {
     void inject (MainActivity mainActivity);
     void inject (MainPagerFragment mainPagerFragment);
     void inject (CollectFragment collectFragment);
+    void inject (SettingFragment settingFragment);
     //知识体系
     void inject (KnowledgeHierarchyFragment knowledgeHierarchyFragment);
     void inject (KnowledgeHierarchyDetailActivity knowledgeHierarchyDetailActivity);

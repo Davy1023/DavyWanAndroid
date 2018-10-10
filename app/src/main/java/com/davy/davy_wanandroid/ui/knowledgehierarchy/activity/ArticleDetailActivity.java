@@ -99,11 +99,6 @@ public class ArticleDetailActivity extends BaseActivity<ArticleDetailPresenter> 
         mWebview.loadUrl(mArticleLink);
 
         WebSettings mSettings = mWebview.getSettings();
-        if (mPresenter.getNoImageState()) {
-            mSettings.setBlockNetworkImage(true);
-        } else {
-            mSettings.setBlockNetworkImage(false);
-        }
         if (mPresenter.getAutoCacheState()) {
             mSettings.setAppCacheEnabled(true);
             mSettings.setDomStorageEnabled(true);

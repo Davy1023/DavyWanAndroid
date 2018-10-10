@@ -52,6 +52,11 @@ public class PreferencesHelperImpl implements PreferencesHelper {
     }
 
     @Override
+    public boolean getNightModeState() {
+        return mSharedPreferences.getBoolean(Constants.NIGHT_MODE_STATE, false);
+    }
+
+    @Override
     public boolean getLoginStatus() {
         return mSharedPreferences.getBoolean(Constants.LOGIN_STATUS,false);
     }
@@ -72,17 +77,7 @@ public class PreferencesHelperImpl implements PreferencesHelper {
     }
 
     @Override
-    public boolean getNoImageState() {
-        return mSharedPreferences.getBoolean(Constants.NO_IMAGE_STATE, false);
-    }
-
-    @Override
     public void setAutoCacheState(boolean b) {
         mSharedPreferences.edit().putBoolean(Constants.AUTO_CACHE_STATE, b).apply();
-    }
-
-    @Override
-    public void setNoImageState(boolean b) {
-        mSharedPreferences.edit().putBoolean(Constants.NO_IMAGE_STATE, b).apply();
     }
 }
