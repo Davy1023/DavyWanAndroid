@@ -1,6 +1,8 @@
 package com.davy.davy_wanandroid.core;
 
+import com.davy.davy_wanandroid.bean.BaseGankResponse;
 import com.davy.davy_wanandroid.bean.BaseResponse;
+import com.davy.davy_wanandroid.bean.girls.GirlsImageData;
 import com.davy.davy_wanandroid.bean.knowledgehierarchy.KnowledgeHierarchyData;
 import com.davy.davy_wanandroid.bean.main.BannerData;
 import com.davy.davy_wanandroid.bean.main.LoginData;
@@ -78,6 +80,11 @@ public class DataManager implements HttpHelper,PreferencesHelper {
     @Override
     public Observable<BaseResponse<List<NavigationListData>>> getNavigationListData() {
         return mHttpHelper.getNavigationListData();
+    }
+
+    @Override
+    public Observable<BaseGankResponse<List<GirlsImageData>>> getGirlsListData(String type, int count, int pageIndex) {
+        return mHttpHelper.getGirlsListData(type, count, pageIndex);
     }
 
     @Override

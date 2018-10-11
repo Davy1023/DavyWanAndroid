@@ -10,6 +10,13 @@ import java.io.File;
  */
 public class Constants {
 
+    /**
+     * Host
+     */
+    public static final String HOST = "http://www.wanandroid.com/";
+    public static final String URL_GANK = "http://gank.io/api/";
+
+
     public static final long DOUBLE_INTERVAL_TIME = 2000;
     /**
      * Path

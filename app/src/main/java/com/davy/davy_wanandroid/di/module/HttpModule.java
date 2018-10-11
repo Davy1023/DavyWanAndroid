@@ -46,7 +46,7 @@ public class HttpModule {
     @Provides
     @WanAndroidUrl
     Retrofit provideRetrofit (Retrofit.Builder builder,OkHttpClient client){
-        return createRetrofit(builder,client,WanAndroidApi.HOST);
+        return createRetrofit(builder,client,Constants.HOST);
     }
 
     @Singleton

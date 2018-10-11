@@ -1,6 +1,9 @@
 package com.davy.davy_wanandroid.core.http.api;
 
+import com.davy.davy_wanandroid.app.Constants;
+import com.davy.davy_wanandroid.bean.BaseGankResponse;
 import com.davy.davy_wanandroid.bean.BaseResponse;
+import com.davy.davy_wanandroid.bean.girls.GirlsImageData;
 import com.davy.davy_wanandroid.bean.knowledgehierarchy.KnowledgeHierarchyData;
 import com.davy.davy_wanandroid.bean.main.BannerData;
 import com.davy.davy_wanandroid.bean.main.LoginData;
@@ -22,8 +25,6 @@ import retrofit2.http.Query;
  * date: 18/9/17
  */
 public interface WanAndroidApi {
-
-    String HOST = "http://www.wanandroid.com/";
 
     /**
      * 注册
@@ -131,4 +132,16 @@ public interface WanAndroidApi {
     @GET("navi/json")
     Observable<BaseResponse<List<NavigationListData>>> getNavigationListData();
 
+    /**
+     * 妹子福利
+     *
+     * @param type
+     * @param count
+     * @param pageIndex
+     * @return 妹子图片数据
+     */
+    @GET(Constants.URL_GANK + "data/{type}/{count}/{pageIndex}")
+    Observable<BaseGankResponse<List<GirlsImageData>>> getGirlsListData(@Path("type") String type,
+                                                                        @Path("count") int count,
+                                                                        @Path("pageIndex") int pageIndex);
 }

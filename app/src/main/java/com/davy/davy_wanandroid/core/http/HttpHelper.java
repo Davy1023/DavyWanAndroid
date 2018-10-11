@@ -1,6 +1,8 @@
 package com.davy.davy_wanandroid.core.http;
 
+import com.davy.davy_wanandroid.bean.BaseGankResponse;
 import com.davy.davy_wanandroid.bean.BaseResponse;
+import com.davy.davy_wanandroid.bean.girls.GirlsImageData;
 import com.davy.davy_wanandroid.bean.knowledgehierarchy.KnowledgeHierarchyData;
 import com.davy.davy_wanandroid.bean.main.BannerData;
 import com.davy.davy_wanandroid.bean.main.LoginData;
@@ -91,5 +93,14 @@ public interface HttpHelper {
      * @return 导航列表数据
      */
     Observable<BaseResponse<List<NavigationListData>>> getNavigationListData();
+
+    /**
+     * 妹子福利
+     * @param type
+     * @param count
+     * @param pageIndex
+     * @return 妹子照片数据
+     */
+    Observable<BaseGankResponse<List<GirlsImageData>>> getGirlsListData(String type, int count, int pageIndex);
 
  }

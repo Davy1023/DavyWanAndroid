@@ -1,6 +1,7 @@
 package com.davy.davy_wanandroid.di.component;
 
 import com.davy.davy_wanandroid.di.scope.CustomScopeName;
+import com.davy.davy_wanandroid.ui.girls.fragment.GrilsFragment;
 import com.davy.davy_wanandroid.ui.knowledgehierarchy.activity.ArticleDetailActivity;
 import com.davy.davy_wanandroid.ui.knowledgehierarchy.activity.KnowledgeHierarchyDetailActivity;
 import com.davy.davy_wanandroid.ui.knowledgehierarchy.fragment.KnowledgeHierarchyFragment;
@@ -37,5 +38,7 @@ public interface HttpComponent {
     void inject (ArticleDetailActivity articleDetailActivity);
     //导航
     void inject (NavigationFragment navigationFragment);
+    //妹子福利
+    void inject (GrilsFragment grilsFragment);
 
 }

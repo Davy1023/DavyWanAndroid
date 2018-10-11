@@ -1,5 +1,6 @@
 package com.davy.davy_wanandroid.utils;
 
+import com.davy.davy_wanandroid.bean.BaseGankResponse;
 import com.davy.davy_wanandroid.bean.BaseResponse;
 import com.davy.davy_wanandroid.bean.main.WanAndroidArticleListData;
 import com.davy.davy_wanandroid.core.http.exception.OtherException;
@@ -71,6 +72,32 @@ public class RxUtil {
                         }
 
                     }
+                });
+            }
+        };
+    }
+
+    /**
+     * 妹子福利返回结果的处理
+     * @param <T> 指定的泛型类型
+     * @return ObservableTransformer
+     */
+    public static <T> ObservableTransformer<BaseGankResponse<T>, T> handleGirlsResult(){
+        return new ObservableTransformer<BaseGankResponse<T>, T>() {
+            @Override
+            public ObservableSource<T> apply(Observable<BaseGankResponse<T>> responseObservable) {
+                return responseObservable.flatMap(new Function<BaseGankResponse<T>, ObservableSource<T>>() {
+                    @Override
+                    public ObservableSource<T> apply(BaseGankResponse<T> baseResponse) throws Exception {
+                        if(baseResponse.isError() == BaseGankResponse.ERROR && baseResponse.getResults() != null
+                                && CommonUtils.isNetWorkConnected()){
+                            return createData(baseResponse.getResults());
+                        }else {
+                            return Observable.error(new OtherException());
+                        }
+
+                    }
+
                 });
             }
         };

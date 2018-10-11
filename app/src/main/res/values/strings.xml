@@ -71,6 +71,9 @@
     <!--导航-->
     <string name="fail_navigation_data">获取导航列表数据失败</string>
 
+    <!--妹子福利-->
+    <string name="fail_grils_data">获取妹子福利数据失败</string>
+
     //文章详情
     <string name="share">分享</string>
     <string name="cancel_collect">取消收藏</string>

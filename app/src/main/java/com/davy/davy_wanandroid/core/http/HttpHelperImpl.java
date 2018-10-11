@@ -1,6 +1,8 @@
 package com.davy.davy_wanandroid.core.http;
 
+import com.davy.davy_wanandroid.bean.BaseGankResponse;
 import com.davy.davy_wanandroid.bean.BaseResponse;
+import com.davy.davy_wanandroid.bean.girls.GirlsImageData;
 import com.davy.davy_wanandroid.bean.knowledgehierarchy.KnowledgeHierarchyData;
 import com.davy.davy_wanandroid.bean.main.BannerData;
 import com.davy.davy_wanandroid.bean.main.LoginData;
@@ -79,5 +81,10 @@ public class HttpHelperImpl implements HttpHelper {
     @Override
     public Observable<BaseResponse<List<NavigationListData>>> getNavigationListData() {
         return mWanAndroidApi.getNavigationListData();
+    }
+
+    @Override
+    public Observable<BaseGankResponse<List<GirlsImageData>>> getGirlsListData(String type, int count, int pageIndex) {
+        return mWanAndroidApi.getGirlsListData(type, count, pageIndex);
     }
 }
