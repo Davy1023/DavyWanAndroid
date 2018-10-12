@@ -44,7 +44,7 @@ public class KnowledgeHierarchyListFragment extends BaseRootFragment<KnowledgeHi
 
     private ArticleListAdapter mArticleListAdapter;
     private int id;
-    private int mCurrentPager;
+    private int mCurrentPage;
     private boolean isRefresh = true;
     private int mArticlePosition;
 
@@ -86,8 +86,8 @@ public class KnowledgeHierarchyListFragment extends BaseRootFragment<KnowledgeHi
         if(id == 0){
             return;
         }
-        mCurrentPager = 0;
-        mPresenter.getKnowledgeHierarchyDetailData(mCurrentPager, id, true);
+        mCurrentPage = 0;
+        mPresenter.getKnowledgeHierarchyDetailData(mCurrentPage, id, true);
         if(CommonUtils.isNetWorkConnected()){
             showLoading();
         }
@@ -239,7 +239,7 @@ public class KnowledgeHierarchyListFragment extends BaseRootFragment<KnowledgeHi
         mRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshLayout) {
-                mCurrentPager = 0;
+                mCurrentPage = 0;
                 if(id != 0){
                     isRefresh = true;
                     mPresenter.getKnowledgeHierarchyDetailData(0, id, false);
@@ -250,10 +250,10 @@ public class KnowledgeHierarchyListFragment extends BaseRootFragment<KnowledgeHi
         mRefreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(RefreshLayout refreshLayout) {
-                mCurrentPager ++;
+                mCurrentPage ++;
                 if(id != 0){
                     isRefresh = false;
-                    mPresenter.getKnowledgeHierarchyDetailData(mCurrentPager, id, false);
+                    mPresenter.getKnowledgeHierarchyDetailData(mCurrentPage, id, false);
                 }
                 refreshLayout.finishLoadMore(1000);
             }

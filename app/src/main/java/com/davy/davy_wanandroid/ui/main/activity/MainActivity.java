@@ -27,7 +27,7 @@ import com.davy.davy_wanandroid.core.event.LoginEvent;
 import com.davy.davy_wanandroid.di.component.ApplicationComponent;
 import com.davy.davy_wanandroid.di.component.DaggerHttpComponent;
 import com.davy.davy_wanandroid.presenter.main.MainPresenter;
-import com.davy.davy_wanandroid.ui.girls.fragment.GrilsFragment;
+import com.davy.davy_wanandroid.ui.girls.fragment.GirlsFragment;
 import com.davy.davy_wanandroid.ui.knowledgehierarchy.fragment.KnowledgeHierarchyFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.CollectFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.MainPagerFragment;
@@ -64,7 +64,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     private MainPagerFragment mMainPagerFragment;
     private KnowledgeHierarchyFragment mKnowledgeHierarchyFragment;
     private NavigationFragment mNavigationFragment;
-    private GrilsFragment mGrilsFragment;
+    private GirlsFragment mGrilsFragment;
     private TextView mUserTv;
     private int mLastPosition;
 
@@ -144,7 +144,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     private void initFragment() {
         mKnowledgeHierarchyFragment = KnowledgeHierarchyFragment.getInstans(null, null);
         mNavigationFragment = NavigationFragment.getInstance(null, null);
-        mGrilsFragment = GrilsFragment.getInstance(null, null);
+        mGrilsFragment = GirlsFragment.getInstance(null, null);
         CollectFragment collectFragment = CollectFragment.getInstance(null, null);
         SettingFragment settingFragment = SettingFragment.getInstance(null, null);
 
@@ -240,7 +240,13 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                      mNavigationFragment.jumpToTop();
                  }
                  break;
-
+            case Constants.TYPE_GIRLS:
+                if(mGrilsFragment != null){
+                    mGrilsFragment.jumpToTop();
+                }
+                break;
+            default:
+                break;
         }
     }
 

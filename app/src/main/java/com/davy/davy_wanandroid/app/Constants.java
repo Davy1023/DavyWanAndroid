@@ -100,4 +100,9 @@ public class Constants {
 
     public static final String MENU_BUILDER = "MenuBuilder";
 
+    /**
+     * 妹子福利
+     */
+    public static final String FULI = "福利";
+
 }

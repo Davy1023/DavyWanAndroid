@@ -105,4 +105,13 @@ public class CommonUtils {
         //使用rgb混合生成一种新的颜色,Color.rgb生成的是一个int数
         return Color.rgb(red,green, blue);
     }
+
+    /**
+     * 获取屏幕的宽度
+     * @param context
+     * @return
+     */
+    public static int getWidth(Context context) {
+        return context.getResources().getDisplayMetrics().widthPixels;
+    }
 }
