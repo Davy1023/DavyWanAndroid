@@ -72,5 +72,9 @@ ext{
             "ByeBurger"                         : "com.github.githubwing:ByeBurger:1.2.3",
             "lottie"                            : "com.airbnb.android:lottie:2.3.0",
             "BaseRecyclerViewAdapterHelper"     : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34",
+            "PhotoView"                         : "com.github.chrisbanes:PhotoView:2.0.0",
+            "permission"                        : "com.yanzhenjie:permission:2.0.0-rc4",
+            "material-dialogs"                  : "com.afollestad.material-dialogs:core:0.9.3.0",
+            "MNProgress"                        : "com.github.maning0303:MNProgressHUD:V1.0.6",
     ]
 }

@@ -82,4 +82,6 @@
     <color name="navigation_normal">#FF757575</color>
 
     <color name="itemGrayBg">#eaeaea</color>
+    <color name="item_selecter_pressed_color">#e6e6e6</color>
+    <color name="item_bg">#ffffff</color>
 </resources>

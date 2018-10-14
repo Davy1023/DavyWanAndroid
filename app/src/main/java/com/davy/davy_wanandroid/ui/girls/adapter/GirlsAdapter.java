@@ -9,8 +9,10 @@ import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.davy.davy_wanandroid.R;
@@ -28,12 +30,17 @@ import java.util.List;
  */
 public class GirlsAdapter extends BaseQuickAdapter<GirlsImageData, GirlsViewHolder> {
 
+    private final RequestOptions mOptions;
     private int screenWidth;
     private ArrayMap<String, PicSizeData> picSizeArrayMap = new ArrayMap<>();
 
     public GirlsAdapter(int layoutResId, @Nullable List<GirlsImageData> data) {
         super(layoutResId, data);
         screenWidth = CommonUtils.getWidth(WanAndroidApplication.getInstance());
+        mOptions = new RequestOptions();
+        mOptions.fitCenter();
+        mOptions.placeholder(R.drawable.icon_pic_gray_bg);
+        mOptions.diskCacheStrategy(DiskCacheStrategy.ALL);
     }
 
     @Override
@@ -44,6 +51,7 @@ public class GirlsAdapter extends BaseQuickAdapter<GirlsImageData, GirlsViewHold
         Glide.with(mContext)
                 .asBitmap()
                 .load(item.getUrl())
+                .apply(mOptions)
                 .thumbnail(0.2f)
                 .listener(new RequestListener<Bitmap>() {
                     @Override

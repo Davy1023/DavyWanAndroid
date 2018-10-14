@@ -73,6 +73,20 @@
 
     <!--妹子福利-->
     <string name="fail_grils_data">获取妹子福利数据失败</string>
+    <string name="image_save">保存</string>
+    <string name="image_share">分享</string>
+    <string name="set_wallpaper">设置壁纸</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="image_saving">正在保存图片...</string>
+    <string name="fail_write_permission">获取存储权限失败，请前往设置页面打开存储权限</string>
+    <string name="save_image_success">保存成功</string>
+    <string name="save_image_fail">保存失败</string>
+    <string name="wanAndroid_image_share">玩Android图片分享</string>
+    <string name="girls_image_share">分享图片:</string>
+    <string name="share_go">分享到</string>
+    <string name="setting_wallpager">正在设置壁纸...</string>
+    <string name="setting_success">设置成功</string>
+    <string name="fail_setting">设置失败</string>
 
     //文章详情
     <string name="share">分享</string>

@@ -1,5 +1,7 @@
 package com.davy.davy_wanandroid.app;
 
+import android.os.Environment;
+
 import com.davy.davy_wanandroid.R;
 
 import java.io.File;
@@ -104,5 +106,8 @@ public class Constants {
      * 妹子福利
      */
     public static final String FULI = "福利";
+    public static final String IMAGELIST = "imageList";
+    public static final String CURRENT_POSITION = "current_position";
+    public static final String IMAGE_PATH = Environment.getExternalStorageDirectory() + "/WanAndroidImage";
 
 }

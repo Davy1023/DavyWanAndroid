@@ -29,4 +29,7 @@
     <color name="search_grey">#ffffff</color>
     <color name="main_status_bar_blue">#333333</color>
     <color name="search_status_bar_white">#333333</color>
+
+    <color name="item_selecter_pressed_color_night">#f6202431</color>
+    <color name="item_bg">#ffffff</color>
 </resources>

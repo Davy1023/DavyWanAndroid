@@ -1,11 +1,15 @@
 package com.davy.davy_wanandroid.ui.girls.fragment;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.davy.davy_wanandroid.R;
 import com.davy.davy_wanandroid.app.Constants;
 import com.davy.davy_wanandroid.base.fragment.BaseRootFragment;
@@ -14,6 +18,7 @@ import com.davy.davy_wanandroid.contract.girls.GirlsContract;
 import com.davy.davy_wanandroid.di.component.ApplicationComponent;
 import com.davy.davy_wanandroid.di.component.DaggerHttpComponent;
 import com.davy.davy_wanandroid.presenter.girls.GirlsPresenter;
+import com.davy.davy_wanandroid.ui.girls.activity.GirlsImageBrowserActivity;
 import com.davy.davy_wanandroid.ui.girls.adapter.GirlsAdapter;
 import com.davy.davy_wanandroid.utils.CommonUtils;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -21,6 +26,7 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -40,6 +46,8 @@ public class GirlsFragment extends BaseRootFragment<GirlsPresenter> implements G
     private int mPageSize = 20;
     private boolean isRefresh = true;
     private GirlsAdapter mGirlsAdapter;
+    private List<GirlsImageData> mGirlsListData = new ArrayList<>();
+    private ArrayList<String> mImageList = new ArrayList<>();
 
     public static GirlsFragment getInstance(String param1, String param2) {
         GirlsFragment fragment = new GirlsFragment();
@@ -96,9 +104,11 @@ public class GirlsFragment extends BaseRootFragment<GirlsPresenter> implements G
     @Override
     public void showGirlsListData(List<GirlsImageData> girlsImageDataList) {
         if(isRefresh){
+            mGirlsListData = girlsImageDataList;
             mGirlsAdapter.replaceData(girlsImageDataList);
         }else{
             if(girlsImageDataList.size() > 0){
+                mGirlsListData.addAll(girlsImageDataList);
                 mGirlsAdapter.addData(girlsImageDataList);
             }else{
                 CommonUtils.showSnackMessage(_mActivity, getString(R.string.load_more_no_data));
@@ -110,8 +120,31 @@ public class GirlsFragment extends BaseRootFragment<GirlsPresenter> implements G
     private void initRecyclerView() {
         mGirlsAdapter = new GirlsAdapter(R.layout.item_girls_image, null);
         mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        mGirlsAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                startGirlsImageBrowser(view, position);
+            }
+        });
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(mGirlsAdapter);
+    }
+
+    private void startGirlsImageBrowser(View view, int position) {
+        mImageList.clear();
+        for(int i = 0 ; i < mGirlsListData.size() ; i++){
+            mImageList.add(mGirlsListData.get(i).getUrl());
+        }
+        Intent intent = new Intent(_mActivity, GirlsImageBrowserActivity.class);
+        intent.putExtra(Constants.IMAGELIST, mImageList);
+        intent.putExtra(Constants.CURRENT_POSITION, position);
+
+        ActivityOptions options = ActivityOptions.makeScaleUpAnimation(view,
+                view.getWidth() / 2,
+                view.getHeight() / 2,
+                0,
+                0);
+        _mActivity.startActivity(intent, options.toBundle());
     }
 
     public void jumpToTop(){

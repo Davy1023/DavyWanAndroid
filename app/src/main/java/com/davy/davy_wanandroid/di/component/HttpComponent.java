@@ -41,4 +41,6 @@ public interface HttpComponent {
     //妹子福利
     void inject (GirlsFragment girlsFragment);
 
+
+
 }
