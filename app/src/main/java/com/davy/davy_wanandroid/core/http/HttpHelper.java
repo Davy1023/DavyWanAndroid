@@ -6,6 +6,7 @@ import com.davy.davy_wanandroid.bean.girls.GirlsImageData;
 import com.davy.davy_wanandroid.bean.knowledgehierarchy.KnowledgeHierarchyData;
 import com.davy.davy_wanandroid.bean.main.BannerData;
 import com.davy.davy_wanandroid.bean.main.LoginData;
+import com.davy.davy_wanandroid.bean.main.UsefulSiteData;
 import com.davy.davy_wanandroid.bean.main.WanAndroidArticleListData;
 import com.davy.davy_wanandroid.bean.navigation.NavigationListData;
 
@@ -102,5 +103,11 @@ public interface HttpHelper {
      * @return 妹子照片数据
      */
     Observable<BaseGankResponse<List<GirlsImageData>>> getGirlsListData(String type, int count, int pageIndex);
+
+    /**
+     * 常用网站
+     * @return 常用网站数据
+     */
+    Observable<BaseResponse<List<UsefulSiteData>>> getUsefulSiteData();
 
  }

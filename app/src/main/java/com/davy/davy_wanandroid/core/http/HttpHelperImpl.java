@@ -6,6 +6,7 @@ import com.davy.davy_wanandroid.bean.girls.GirlsImageData;
 import com.davy.davy_wanandroid.bean.knowledgehierarchy.KnowledgeHierarchyData;
 import com.davy.davy_wanandroid.bean.main.BannerData;
 import com.davy.davy_wanandroid.bean.main.LoginData;
+import com.davy.davy_wanandroid.bean.main.UsefulSiteData;
 import com.davy.davy_wanandroid.bean.main.WanAndroidArticleListData;
 import com.davy.davy_wanandroid.bean.navigation.NavigationListData;
 import com.davy.davy_wanandroid.core.http.api.WanAndroidApi;
@@ -86,5 +87,10 @@ public class HttpHelperImpl implements HttpHelper {
     @Override
     public Observable<BaseGankResponse<List<GirlsImageData>>> getGirlsListData(String type, int count, int pageIndex) {
         return mWanAndroidApi.getGirlsListData(type, count, pageIndex);
+    }
+
+    @Override
+    public Observable<BaseResponse<List<UsefulSiteData>>> getUsefulSiteData() {
+        return mWanAndroidApi.getUsefulSiteData() ;
     }
 }

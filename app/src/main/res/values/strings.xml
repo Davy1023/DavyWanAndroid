@@ -58,6 +58,9 @@
     <!--收藏-->
     <string name="no_collect">暂无收藏数据，请添加收藏文章吧</string>
 
+    <!--搜索-->
+    <string name="fail_site_data">获取常用网站数据失败</string>
+
     <!--设置-->
     <string name="setting_cache">自动缓存</string>
     <string name="setting_night">夜间模式</string>

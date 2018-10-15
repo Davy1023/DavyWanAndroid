@@ -12,6 +12,7 @@ import com.davy.davy_wanandroid.ui.main.activity.RegisterActivity;
 import com.davy.davy_wanandroid.ui.main.fragment.CollectFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.MainPagerFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.SettingFragment;
+import com.davy.davy_wanandroid.ui.main.fragment.SiteDialogFragment;
 import com.davy.davy_wanandroid.ui.navigation.fragment.NavigationFragment;
 
 import dagger.Component;
@@ -40,6 +41,8 @@ public interface HttpComponent {
     void inject (NavigationFragment navigationFragment);
     //妹子福利
     void inject (GirlsFragment girlsFragment);
+    //常用网站与搜索
+    void inject (SiteDialogFragment siteDialogFragment);
 
 
 
