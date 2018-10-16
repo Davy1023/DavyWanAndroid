@@ -42,7 +42,7 @@ public class BasePresenter<T extends AbstractView> implements AbstractPresenter<
 
     @Override
     public boolean getNightModeState() {
-        return false;
+        return mDataManager.getNightModeState();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.davy.davy_wanandroid.app;
 
+import android.graphics.Color;
 import android.os.Environment;
 
 import com.davy.davy_wanandroid.R;
@@ -109,5 +110,25 @@ public class Constants {
     public static final String IMAGELIST = "imageList";
     public static final String CURRENT_POSITION = "current_position";
     public static final String IMAGE_PATH = Environment.getExternalStorageDirectory() + "/WanAndroidImage";
+
+    /**
+     * Tab colors
+     */
+    public static final int[] TAB_COLORS = new int[]{
+//            Color.parseColor("#00abff"),
+//            Color.parseColor("#3fc75f"),
+//            Color.parseColor("#6D8FB0"),
+//            Color.parseColor("#f9382a"),
+//            Color.parseColor("#ECECEC"),
+//            Color.parseColor("#DC143C"),
+//            Color.parseColor("#9400D3")
+            Color.parseColor("#90C5F0"),
+            Color.parseColor("#91CED5"),
+            Color.parseColor("#F88F55"),
+            Color.parseColor("#C0AFD0"),
+            Color.parseColor("#E78F8F"),
+            Color.parseColor("#67CCB7"),
+            Color.parseColor("#F6BC7E")
+    };
 
 }

@@ -21,7 +21,7 @@ public interface SiteDialogContract {
         void showUsefulSiteData(List<UsefulSiteData> siteDataList);
     }
 
-    interface Presenter extends AbstractPresenter<View>{
+    interface Presenter extends AbstractPresenter<SiteDialogContract.View>{
 
         /**
          * 获取常用网站数据

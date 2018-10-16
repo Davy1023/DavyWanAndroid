@@ -54,6 +54,8 @@
     <string name="hour">小时</string>
     <string name="one_day">1天</string>
     <string name="text_new">新</string>
+    <string name="useful_sites">常用网站</string>
+    <string name="action_search">搜索</string>
 
     <!--收藏-->
     <string name="no_collect">暂无收藏数据，请添加收藏文章吧</string>

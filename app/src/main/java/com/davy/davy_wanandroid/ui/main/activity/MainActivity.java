@@ -32,6 +32,7 @@ import com.davy.davy_wanandroid.ui.knowledgehierarchy.fragment.KnowledgeHierarch
 import com.davy.davy_wanandroid.ui.main.fragment.CollectFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.MainPagerFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.SettingFragment;
+import com.davy.davy_wanandroid.ui.main.fragment.SiteDialogFragment;
 import com.davy.davy_wanandroid.ui.navigation.fragment.NavigationFragment;
 import com.davy.davy_wanandroid.utils.BottomNavigationViewHelper;
 import com.davy.davy_wanandroid.utils.CommonAlertDialog;
@@ -67,6 +68,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     private GirlsFragment mGrilsFragment;
     private TextView mUserTv;
     private int mLastPosition;
+    private SiteDialogFragment mSiteDialogFragment;
 
     @Override
     protected int getLayoutId() {
@@ -115,11 +117,25 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_activity_main, menu);
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_usage:
+                if(mSiteDialogFragment == null){
+                    mSiteDialogFragment = new SiteDialogFragment();
+                }
+                if(!isDestroyed() && mSiteDialogFragment.isAdded()){
+                    mSiteDialogFragment.dismiss();
+                }
+                mSiteDialogFragment.show(getSupportFragmentManager(), "SiteDialogFragment");
+                break;
+                default:
+                    break;
+        }
         return super.onOptionsItemSelected(item);
     }
 

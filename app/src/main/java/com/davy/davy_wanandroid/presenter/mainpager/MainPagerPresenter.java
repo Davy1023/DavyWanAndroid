@@ -15,6 +15,7 @@ import com.davy.davy_wanandroid.core.DataManager;
 import com.davy.davy_wanandroid.core.event.CollectEvent;
 import com.davy.davy_wanandroid.core.event.LoginEvent;
 import com.davy.davy_wanandroid.utils.CommonUtils;
+import com.davy.davy_wanandroid.utils.LogHelper;
 import com.davy.davy_wanandroid.utils.RxBus;
 import com.davy.davy_wanandroid.utils.RxUtil;
 

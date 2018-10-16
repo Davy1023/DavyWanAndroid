@@ -9,6 +9,7 @@ public class UsefulSiteData {
     private int id;
     private String name;
     private String link;
+
     private int visible;
     private int order;
     private String icon;
@@ -59,5 +60,17 @@ public class UsefulSiteData {
 
     public void setIcon(String icon) {
         this.icon = icon;
+    }
+
+    @Override
+    public String toString() {
+        return "UsefulSiteData{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", link='" + link + '\'' +
+                ", visible=" + visible +
+                ", order=" + order +
+                ", icon='" + icon + '\'' +
+                '}';
     }
 }

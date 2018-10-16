@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.davy.davy_wanandroid.R;
+import com.davy.davy_wanandroid.app.Constants;
 import com.davy.davy_wanandroid.app.WanAndroidApplication;
 import com.davy.davy_wanandroid.ui.main.activity.MainActivity;
 
@@ -113,5 +114,14 @@ public class CommonUtils {
      */
     public static int getWidth(Context context) {
         return context.getResources().getDisplayMetrics().widthPixels;
+    }
+
+    public static int randomTagColor(){
+        int random = new Random().nextInt();
+        int positon = random % Constants.TAB_COLORS.length;
+        if(positon < 0){
+            positon = -positon;
+        }
+        return Constants.TAB_COLORS[positon];
     }
 }

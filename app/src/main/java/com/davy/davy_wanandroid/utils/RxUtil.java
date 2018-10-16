@@ -66,6 +66,7 @@ public class RxUtil {
                     public ObservableSource<T> apply(BaseResponse<T> baseResponse) throws Exception {
                         if(baseResponse.getErrorCode() == BaseResponse.SUCCESS && baseResponse.getData() != null
                                 && CommonUtils.isNetWorkConnected()){
+                            LogHelper.e("responseData==" + baseResponse.getData().toString() );
                             return createData(baseResponse.getData());
                         }else {
                             return Observable.error(new OtherException());

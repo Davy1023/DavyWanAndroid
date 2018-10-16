@@ -8,6 +8,7 @@ import com.davy.davy_wanandroid.bean.BaseResponse;
 import com.davy.davy_wanandroid.bean.main.UsefulSiteData;
 import com.davy.davy_wanandroid.contract.main.SiteDialogContract;
 import com.davy.davy_wanandroid.core.DataManager;
+import com.davy.davy_wanandroid.utils.LogHelper;
 import com.davy.davy_wanandroid.utils.RxUtil;
 
 import java.util.List;
@@ -19,7 +20,6 @@ import javax.inject.Inject;
  * date: 2018/10/15
  */
 public class SiteDialogPresenter extends BasePresenter<SiteDialogContract.View> implements SiteDialogContract.Presenter {
-
     private DataManager mDataManager;
 
     @Inject
@@ -37,8 +37,9 @@ public class SiteDialogPresenter extends BasePresenter<SiteDialogContract.View> 
                     @Override
                     public void onNext(List<UsefulSiteData> siteDataList) {
                         mView.showUsefulSiteData(siteDataList);
+                        LogHelper.e("siteDataList==" + siteDataList);
                     }
-                })
-        );
+                }));
+
     }
 }

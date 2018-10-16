@@ -2,6 +2,7 @@ package com.davy.davy_wanandroid.base.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 
 import com.davy.davy_wanandroid.base.presenter.AbstractPresenter;
 import com.davy.davy_wanandroid.base.view.AbstractView;
@@ -23,6 +24,14 @@ public abstract class BaseDialogFragment<T extends AbstractPresenter> extends Ab
         super.onCreate(savedInstanceState);
         if(mPresenter != null){
             mPresenter.attachView(this);
+        }
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isVisibleToUser){
+            initEventAndData();
         }
     }
 
