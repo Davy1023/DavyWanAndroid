@@ -32,7 +32,6 @@ import com.davy.davy_wanandroid.ui.knowledgehierarchy.fragment.KnowledgeHierarch
 import com.davy.davy_wanandroid.ui.main.fragment.CollectFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.MainPagerFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.SettingFragment;
-import com.davy.davy_wanandroid.ui.main.fragment.SiteDialogFragment;
 import com.davy.davy_wanandroid.ui.navigation.fragment.NavigationFragment;
 import com.davy.davy_wanandroid.utils.BottomNavigationViewHelper;
 import com.davy.davy_wanandroid.utils.CommonAlertDialog;

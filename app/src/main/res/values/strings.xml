@@ -62,6 +62,7 @@
 
     <!--搜索-->
     <string name="fail_site_data">获取常用网站数据失败</string>
+    <string name="fail_hot_data">获取常用热门数据失败</string>
 
     <!--设置-->
     <string name="setting_cache">自动缓存</string>

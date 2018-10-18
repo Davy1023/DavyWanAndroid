@@ -7,6 +7,7 @@ import com.davy.davy_wanandroid.bean.girls.GirlsImageData;
 import com.davy.davy_wanandroid.bean.knowledgehierarchy.KnowledgeHierarchyData;
 import com.davy.davy_wanandroid.bean.main.BannerData;
 import com.davy.davy_wanandroid.bean.main.LoginData;
+import com.davy.davy_wanandroid.bean.main.TopSearchData;
 import com.davy.davy_wanandroid.bean.main.UsefulSiteData;
 import com.davy.davy_wanandroid.bean.main.WanAndroidArticleListData;
 import com.davy.davy_wanandroid.bean.navigation.NavigationListData;
@@ -17,6 +18,7 @@ import io.reactivex.Observable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -153,4 +155,24 @@ public interface WanAndroidApi {
      */
     @GET("friend/json")
     Observable<BaseResponse<List<UsefulSiteData>>> getUsefulSiteData();
+
+    /**
+     * 搜索数据
+     *
+     * @param page
+     * @param k
+     * @return 搜索数据
+     */
+    @POST("article/query/{page}/json")
+    @FormUrlEncoded
+    Observable<BaseResponse<WanAndroidArticleListData>> getSearchList(@Path("page") int page, @Field("K") String k);
+
+    /**
+     * 热搜
+     *
+     * @return 热搜数据
+     */
+    @GET("hotkey/json")
+    @Headers("Cache-Control: public, max-age=36000")
+    Observable<BaseResponse<List<TopSearchData>>> getTopSearchData();
 }

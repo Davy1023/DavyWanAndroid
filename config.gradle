@@ -48,6 +48,9 @@ ext{
             "dagger"                            : "com.google.dagger:dagger:${version["daggerVersion"]}",
             "dagger-compiler"                   : "com.google.dagger:dagger-compiler:${version["daggerVersion"]}",
 
+            //dao
+            "greendao"                          : "org.greenrobot:greendao:3.2.2",
+
             //net
             "glide"                             : "com.github.bumptech.glide:glide:${version["glideVersion"]}",
             "glide_compiler"                    : "com.github.bumptech.glide:compiler:${version["glideVersion"]}",
@@ -61,7 +64,7 @@ ext{
             "leakcanary-android"                : "com.squareup.leakcanary:leakcanary-android:${version["leakcanaryVersion"]}",
             "leakcanary-android-no-op"          : "com.squareup.leakcanary:leakcanary-android-no-op:${version["leakcanaryVersion"]}",
 
-//            //multidex
+            //multidex
             "multidex"                          : "com.android.support:multidex:1.0.3",
 
             //other

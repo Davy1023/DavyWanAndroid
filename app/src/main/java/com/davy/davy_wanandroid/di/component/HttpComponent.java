@@ -12,7 +12,6 @@ import com.davy.davy_wanandroid.ui.main.activity.RegisterActivity;
 import com.davy.davy_wanandroid.ui.main.fragment.CollectFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.MainPagerFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.SettingFragment;
-import com.davy.davy_wanandroid.ui.main.fragment.SiteDialogFragment;
 import com.davy.davy_wanandroid.ui.navigation.fragment.NavigationFragment;
 
 import dagger.Component;

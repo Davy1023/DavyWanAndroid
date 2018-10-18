@@ -6,9 +6,12 @@ import com.davy.davy_wanandroid.bean.girls.GirlsImageData;
 import com.davy.davy_wanandroid.bean.knowledgehierarchy.KnowledgeHierarchyData;
 import com.davy.davy_wanandroid.bean.main.BannerData;
 import com.davy.davy_wanandroid.bean.main.LoginData;
+import com.davy.davy_wanandroid.bean.main.TopSearchData;
 import com.davy.davy_wanandroid.bean.main.UsefulSiteData;
 import com.davy.davy_wanandroid.bean.main.WanAndroidArticleListData;
 import com.davy.davy_wanandroid.bean.navigation.NavigationListData;
+import com.davy.davy_wanandroid.core.dao.HistoryData;
+import com.davy.davy_wanandroid.core.db.DbHelper;
 import com.davy.davy_wanandroid.core.http.HttpHelper;
 import com.davy.davy_wanandroid.core.prefs.PreferencesHelper;
 
@@ -20,13 +23,15 @@ import io.reactivex.Observable;
  * author: Davy
  * date: 2018/9/26
  */
-public class DataManager implements HttpHelper,PreferencesHelper {
+public class DataManager implements HttpHelper, PreferencesHelper, DbHelper{
     private HttpHelper mHttpHelper;
     private PreferencesHelper mPreferencesHelper;
+    private DbHelper mDbHelper;
 
-    public DataManager(HttpHelper httpHelper,PreferencesHelper preferencesHelper){
+    public DataManager(HttpHelper httpHelper, PreferencesHelper preferencesHelper, DbHelper dbHelper){
         this.mHttpHelper = httpHelper;
         this.mPreferencesHelper = preferencesHelper;
+        this.mDbHelper = dbHelper;
     }
     @Override
     public Observable<BaseResponse<LoginData>> getRegisterData(String username, String password, String repassword) {
@@ -94,6 +99,16 @@ public class DataManager implements HttpHelper,PreferencesHelper {
     }
 
     @Override
+    public Observable<BaseResponse<WanAndroidArticleListData>> getSearchList(int pageNum, String k) {
+        return mHttpHelper.getSearchList(pageNum, k);
+    }
+
+    @Override
+    public Observable<BaseResponse<List<TopSearchData>>> getTopSearchData() {
+        return mHttpHelper.getTopSearchData();
+    }
+
+    @Override
     public void setLoginStatus(boolean isLogin) {
         mPreferencesHelper.setLoginStatus(isLogin);
     }
@@ -151,5 +166,20 @@ public class DataManager implements HttpHelper,PreferencesHelper {
     @Override
     public boolean getNightModeState() {
         return mPreferencesHelper.getNightModeState();
+    }
+
+    @Override
+    public List<HistoryData> addHistoryData(String data) {
+        return mDbHelper.addHistoryData(data);
+    }
+
+    @Override
+    public void clearnHistoryData() {
+        mDbHelper.clearnHistoryData();
+    }
+
+    @Override
+    public List<HistoryData> getAllHistoryData() {
+        return mDbHelper.getAllHistoryData();
     }
 }

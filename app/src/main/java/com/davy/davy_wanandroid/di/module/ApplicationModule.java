@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.davy.davy_wanandroid.app.WanAndroidApplication;
 import com.davy.davy_wanandroid.core.DataManager;
+import com.davy.davy_wanandroid.core.db.DbHelper;
 import com.davy.davy_wanandroid.core.http.HttpHelper;
 import com.davy.davy_wanandroid.core.http.HttpHelperImpl;
 import com.davy.davy_wanandroid.core.prefs.PreferencesHelper;
@@ -53,7 +54,7 @@ public class ApplicationModule {
 
     @Singleton
     @Provides
-    DataManager provideDataManager(HttpHelper httpHelper, PreferencesHelper preferencesHelper){
-        return new DataManager(httpHelper,preferencesHelper);
+    DataManager provideDataManager(HttpHelper httpHelper, PreferencesHelper preferencesHelper, DbHelper dbHelper){
+        return new DataManager(httpHelper, preferencesHelper, dbHelper);
     }
 }

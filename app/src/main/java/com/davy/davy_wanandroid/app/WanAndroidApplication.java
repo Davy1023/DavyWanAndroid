@@ -2,6 +2,7 @@ package com.davy.davy_wanandroid.app;
 
 import android.app.Application;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 import android.support.multidex.MultiDex;
 import android.support.v4.content.ContextCompat;
@@ -10,6 +11,8 @@ import android.support.v7.app.AppCompatDelegate;
 import com.bumptech.glide.Glide;
 import com.davy.davy_wanandroid.BuildConfig;
 import com.davy.davy_wanandroid.R;
+import com.davy.davy_wanandroid.core.dao.DaoMaster;
+import com.davy.davy_wanandroid.core.dao.DaoSession;
 import com.davy.davy_wanandroid.di.component.ApplicationComponent;
 import com.davy.davy_wanandroid.di.component.DaggerApplicationComponent;
 import com.davy.davy_wanandroid.di.module.ApplicationModule;
@@ -37,6 +40,7 @@ public class WanAndroidApplication extends Application {
     private static WanAndroidApplication instance;
     private RefWatcher mRefWatcher;
     private ApplicationComponent mApplicationComponent;
+    private DaoSession mDaoSession;
 
     @Override
     public void onCreate() {
@@ -93,6 +97,14 @@ public class WanAndroidApplication extends Application {
     }
 
     private void initGreenDao() {
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, Constants.DB_NAME);
+        SQLiteDatabase database = helper.getWritableDatabase();
+        DaoMaster daoMaster = new DaoMaster(database);
+        mDaoSession = daoMaster.newSession();
+    }
+
+    public DaoSession getDaoSession() {
+        return mDaoSession;
     }
 
     private void initLogger() {

@@ -131,4 +131,9 @@ public class Constants {
             Color.parseColor("#F6BC7E")
     };
 
+    /**
+     * DB_NAME
+     */
+    static final String DB_NAME = "wan_android.db";
+
 }
