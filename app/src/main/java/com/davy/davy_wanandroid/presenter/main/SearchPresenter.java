@@ -57,7 +57,7 @@ public class SearchPresenter extends BasePresenter<SearchContract.View> implemen
                 .subscribe(new Consumer<List<HistoryData>>() {
                     @Override
                     public void accept(List<HistoryData> historyDataList) throws Exception {
-
+                            mView.jumpToSearchListActivity();
                     }
                 }));
     }

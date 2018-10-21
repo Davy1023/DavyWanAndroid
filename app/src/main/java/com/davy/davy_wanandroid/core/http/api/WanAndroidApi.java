@@ -165,7 +165,7 @@ public interface WanAndroidApi {
      */
     @POST("article/query/{page}/json")
     @FormUrlEncoded
-    Observable<BaseResponse<WanAndroidArticleListData>> getSearchList(@Path("page") int page, @Field("K") String k);
+    Observable<BaseResponse<WanAndroidArticleListData>> getSearchList(@Path("page") int page, @Field("k") String k);
 
     /**
      * 热搜

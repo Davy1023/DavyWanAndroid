@@ -1,9 +1,11 @@
 package com.davy.davy_wanandroid.base.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
+import com.davy.davy_wanandroid.app.WanAndroidApplication;
 import com.davy.davy_wanandroid.base.presenter.AbstractPresenter;
 import com.davy.davy_wanandroid.base.view.AbstractView;
 import com.davy.davy_wanandroid.utils.CommonUtils;
@@ -20,18 +22,16 @@ public abstract class BaseDialogFragment<T extends AbstractPresenter> extends Ab
     protected T mPresenter;
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        initInjector(WanAndroidApplication.getInstance().getApplicationComponent());
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(mPresenter != null){
             mPresenter.attachView(this);
-        }
-    }
-
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        if(isVisibleToUser){
-            initEventAndData();
         }
     }
 

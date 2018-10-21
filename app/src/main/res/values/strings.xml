@@ -21,7 +21,7 @@
     <string name="about_us">关于我们</string>
     <string name="auto_login_in">自动登录</string>
     <string name="logout">退出登录</string>
-    <string name="login_tint">请先登录~~</string>
+    <string name="login_tint">请先登录</string>
     <string name="login_success">登录成功</string>
     <string name="account_password_null_tint">用户名或密码不能为空</string>
     <string name="login_fail">登录失败</string>
@@ -63,6 +63,11 @@
     <!--搜索-->
     <string name="fail_site_data">获取常用网站数据失败</string>
     <string name="fail_hot_data">获取常用热门数据失败</string>
+    <string name="fail_list_data">获取搜索列表数据失败</string>
+    <string name="search_hint">发现更多干货</string>
+    <string name="hot_search">热搜</string>
+    <string name="clear_all">清空</string>
+    <string name="history_search">历史搜索</string>
 
     <!--设置-->
     <string name="setting_cache">自动缓存</string>

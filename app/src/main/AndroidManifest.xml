@@ -62,6 +62,11 @@
             android:launchMode="singleTask"
             android:theme="@style/ImageBrowserTheme"
             android:exported="false" />
+
+        <activity android:name=".ui.main.activity.SearchListActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            android:exported="false" />
     </application>
 
 </manifest>

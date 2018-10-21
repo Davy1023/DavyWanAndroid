@@ -38,6 +38,7 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
+import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -359,7 +360,15 @@ public class MainPagerFragment extends BaseRootFragment<MainPagerPresenter> impl
         mBanner.setDelayTime(bannerDataList.size() * 400);
         mBanner.setIndicatorGravity(BannerConfig.CENTER);
 
+        mBanner.setOnBannerListener(new OnBannerListener() {
+            @Override
+            public void OnBannerClick(int position) {
+                KnowledgeUtils.startArticleDetailActivity(_mActivity, null,
+                        0, mBannerTitleList.get(position),
+                        mBannerUrlList.get(position),
+                        false, false, true);
+            }
+        });
         mBanner.start();
-
     }
 }

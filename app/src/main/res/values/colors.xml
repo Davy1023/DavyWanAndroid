@@ -9,6 +9,7 @@
     <color name="colorLogo">#FED530</color>
 
     <color name="fab_bg">#FF4081</color>
+    <color name="red">#DC143C</color>
     <color name="drawer_item_bg_p">#e8e8e8</color>
     <color name="drawer_item_bg_n">#fffff9</color>
     <color name="news_unread">#000000</color>

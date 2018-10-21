@@ -26,6 +26,11 @@ public interface SearchContract {
          * @param topSearchDataList
          */
         void showTopSearchData(List<TopSearchData> topSearchDataList);
+
+        /**
+         * 跳转到搜索内容列表
+         */
+        void jumpToSearchListActivity();
     }
 
     interface Presenter extends AbstractPresenter<View>{

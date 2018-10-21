@@ -9,8 +9,10 @@ import com.davy.davy_wanandroid.ui.knowledgehierarchy.fragment.KnowledgeHierarch
 import com.davy.davy_wanandroid.ui.main.activity.LoginActivity;
 import com.davy.davy_wanandroid.ui.main.activity.MainActivity;
 import com.davy.davy_wanandroid.ui.main.activity.RegisterActivity;
+import com.davy.davy_wanandroid.ui.main.activity.SearchListActivity;
 import com.davy.davy_wanandroid.ui.main.fragment.CollectFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.MainPagerFragment;
+import com.davy.davy_wanandroid.ui.main.fragment.SearchDialogFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.SettingFragment;
 import com.davy.davy_wanandroid.ui.navigation.fragment.NavigationFragment;
 
@@ -40,8 +42,9 @@ public interface HttpComponent {
     void inject (NavigationFragment navigationFragment);
     //妹子福利
     void inject (GirlsFragment girlsFragment);
-    //常用网站与搜索
-    void inject (SiteDialogFragment siteDialogFragment);
+    //搜索
+    void inject (SearchDialogFragment searchDialogFragment);
+    void inject (SearchListActivity searchListActivity);
 
 
 

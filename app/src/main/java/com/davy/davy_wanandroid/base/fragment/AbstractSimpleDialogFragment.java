@@ -29,7 +29,7 @@ public abstract class AbstractSimpleDialogFragment extends DialogFragment implem
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mRootView = inflater.inflate(getLayoutId(), container, false);
         mUnbinder = ButterKnife.bind(this, mRootView);
-        initInjector(WanAndroidApplication.getInstance().getApplicationComponent());
+       initEventAndData();
         return mRootView;
     }
 

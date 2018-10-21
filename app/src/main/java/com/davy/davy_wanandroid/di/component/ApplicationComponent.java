@@ -2,6 +2,7 @@ package com.davy.davy_wanandroid.di.component;
 
 import com.davy.davy_wanandroid.app.WanAndroidApplication;
 import com.davy.davy_wanandroid.core.DataManager;
+import com.davy.davy_wanandroid.core.db.DbHelper;
 import com.davy.davy_wanandroid.core.http.HttpHelper;
 import com.davy.davy_wanandroid.core.http.api.WanAndroidApi;
 import com.davy.davy_wanandroid.core.prefs.PreferencesHelper;
@@ -23,6 +24,7 @@ public interface ApplicationComponent {
     WanAndroidApplication getApplication();
     HttpHelper getHttpHelper();
     PreferencesHelper getPreferencesHelper();
+    DbHelper getDbHelper();
     DataManager getDataManager();
 
     WanAndroidApi getWanAndroidApi();

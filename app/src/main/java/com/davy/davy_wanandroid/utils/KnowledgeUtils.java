@@ -8,6 +8,7 @@ import android.os.Build;
 import com.davy.davy_wanandroid.app.Constants;
 import com.davy.davy_wanandroid.ui.knowledgehierarchy.activity.ArticleDetailActivity;
 import com.davy.davy_wanandroid.ui.knowledgehierarchy.activity.KnowledgeHierarchyDetailActivity;
+import com.davy.davy_wanandroid.ui.main.activity.SearchListActivity;
 
 /**
  * author: Davy
@@ -43,5 +44,10 @@ public class KnowledgeUtils {
         context.startActivity(intent);
     }
 
+    public static void startSearchListActivity(Context context, String text){
+        Intent intent = new Intent(context, SearchListActivity.class);
+        intent.putExtra(Constants.SEARCH_TEXT, text);
+        context.startActivity(intent);
+    }
 
 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import com.davy.davy_wanandroid.app.WanAndroidApplication;
 import com.davy.davy_wanandroid.core.DataManager;
 import com.davy.davy_wanandroid.core.db.DbHelper;
+import com.davy.davy_wanandroid.core.db.DbHelpermpl;
 import com.davy.davy_wanandroid.core.http.HttpHelper;
 import com.davy.davy_wanandroid.core.http.HttpHelperImpl;
 import com.davy.davy_wanandroid.core.prefs.PreferencesHelper;
@@ -50,6 +51,12 @@ public class ApplicationModule {
     @Provides
     PreferencesHelper providePreferencesHelper (PreferencesHelperImpl preferencesHelper){
         return preferencesHelper;
+    }
+
+    @Singleton
+    @Provides
+    DbHelper provideDbHelper (DbHelpermpl dbHelpermpl){
+        return dbHelpermpl;
     }
 
     @Singleton

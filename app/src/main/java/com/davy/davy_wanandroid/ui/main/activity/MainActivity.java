@@ -31,6 +31,7 @@ import com.davy.davy_wanandroid.ui.girls.fragment.GirlsFragment;
 import com.davy.davy_wanandroid.ui.knowledgehierarchy.fragment.KnowledgeHierarchyFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.CollectFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.MainPagerFragment;
+import com.davy.davy_wanandroid.ui.main.fragment.SearchDialogFragment;
 import com.davy.davy_wanandroid.ui.main.fragment.SettingFragment;
 import com.davy.davy_wanandroid.ui.navigation.fragment.NavigationFragment;
 import com.davy.davy_wanandroid.utils.BottomNavigationViewHelper;
@@ -67,7 +68,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     private GirlsFragment mGrilsFragment;
     private TextView mUserTv;
     private int mLastPosition;
-    private SiteDialogFragment mSiteDialogFragment;
+    private SearchDialogFragment mSearchDialogFragment;
 
     @Override
     protected int getLayoutId() {
@@ -123,14 +124,14 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.action_usage:
-                if(mSiteDialogFragment == null){
-                    mSiteDialogFragment = new SiteDialogFragment();
+            case R.id.action_search:
+                if(mSearchDialogFragment == null){
+                    mSearchDialogFragment = new SearchDialogFragment();
                 }
-                if(!isDestroyed() && mSiteDialogFragment.isAdded()){
-                    mSiteDialogFragment.dismiss();
+                if(!isDestroyed() && mSearchDialogFragment.isAdded()){
+                    mSearchDialogFragment.dismiss();
                 }
-                mSiteDialogFragment.show(getSupportFragmentManager(), "SiteDialogFragment");
+                mSearchDialogFragment.show(getSupportFragmentManager(), "SearchDialogFragment");
                 break;
                 default:
                     break;

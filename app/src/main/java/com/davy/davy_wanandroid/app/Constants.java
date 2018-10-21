@@ -103,6 +103,8 @@ public class Constants {
 
     public static final String MENU_BUILDER = "MenuBuilder";
 
+    public static final String SEARCH_TEXT = "search_text";
+
     /**
      * 妹子福利
      */
@@ -115,25 +117,19 @@ public class Constants {
      * Tab colors
      */
     public static final int[] TAB_COLORS = new int[]{
-//            Color.parseColor("#00abff"),
-//            Color.parseColor("#3fc75f"),
-//            Color.parseColor("#6D8FB0"),
-//            Color.parseColor("#f9382a"),
-//            Color.parseColor("#ECECEC"),
-//            Color.parseColor("#DC143C"),
-//            Color.parseColor("#9400D3")
-            Color.parseColor("#90C5F0"),
-            Color.parseColor("#91CED5"),
-            Color.parseColor("#F88F55"),
-            Color.parseColor("#C0AFD0"),
-            Color.parseColor("#E78F8F"),
-            Color.parseColor("#67CCB7"),
-            Color.parseColor("#F6BC7E")
+            Color.parseColor("#00abff"),
+            Color.parseColor("#3fc75f"),
+            Color.parseColor("#6D8FB0"),
+            Color.parseColor("#f9382a"),
+            Color.parseColor("#ECECEC"),
+            Color.parseColor("#DC143C"),
+            Color.parseColor("#9400D3")
     };
 
     /**
      * DB_NAME
      */
     static final String DB_NAME = "wan_android.db";
+
 
 }
