@@ -22,6 +22,8 @@ DavyWanAndroid项目基于Material Design + MVP + Rxjava2 + Retrofit + Dagger2 +
 * 炫丽的刷新动画、文章跳转动画、RxBus组件间通讯等
 
 # Version
+
+## V1.0.0
 1.提交DavyWanAndroid第一版
 
 # 感谢
