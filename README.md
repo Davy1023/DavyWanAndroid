@@ -30,7 +30,7 @@ DavyWanAndroid项目基于Material Design + MVP + Rxjava2 + Retrofit + Dagger2 +
 
 
 ## API:
-鸿洋大神提供的[玩Android API](http://www.wanandroid.com/blog/show/2)、干货集中营提供的[干货 API](https://gank.io/api)
+鸿洋大神、干货集中营提供的开源API
 
 ## icon：
 阿里巴巴对外开放的icon资源 [iconfont](http://www.iconfont.cn/)
