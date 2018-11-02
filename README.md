@@ -15,7 +15,6 @@ DavyWanAndroid项目基于Material Design + MVP + Rxjava2 + Retrofit + Dagger2 +
 # 技能点
 * 项目采用MVP模式
 * 使用Rxjava2结合Retrofit2进行网络请求
-* 单Activity+多Fragment的代码结构
 * 使用Rxjava2的操作符对事件流进行进行转换、延时、过滤等操作，其中使用Compose操作符结合工具类简化线程切换调用的代码数量
 * 使用Dagger2无耦合地将Model注入Presenter、Presenter注入View，更高效地实现了MVP模式
 * 使用Material Design中的Behavior集合ToolBar实现了响应式的“上失下现”特效
